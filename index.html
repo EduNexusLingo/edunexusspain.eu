@@ -259,7 +259,13 @@
     input::placeholder, textarea::placeholder { color: #5f7197; }
     textarea { min-height: 140px; resize: vertical; }
     .form-footer { display: flex; align-items: center; flex-wrap: wrap; gap: 15px; }
+    .form-footer button[disabled] { cursor: wait; opacity: .65; }
     .form-status { min-height: 22px; margin: 0; color: var(--cyan); font-size: 12px; }
+    .form-status[data-state="success"] { color: #9ff2cf; }
+    .form-status[data-state="error"] { color: #ffc0b5; }
+    .form-fallback { display: none; align-items: center; color: var(--yellow); font-size: 12px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+    .form-fallback.visible { display: inline-flex; }
+    .form-honey { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 
     /* Floating contact dock */
     .social-dock { position: fixed; z-index: 18; left: 20px; bottom: 22px; display: flex; gap: 10px; padding: 8px; border: 1px solid rgba(175,202,255,.2); border-radius: 999px; background: rgba(5, 14, 35, .78); box-shadow: 0 16px 36px rgba(0,0,0,.3), 0 0 28px rgba(84,229,239,.08); backdrop-filter: blur(18px); }
@@ -394,7 +400,7 @@
             <path d="M310 285 C 310 350, 312 430, 310 512"></path>
             <circle cx="110" cy="135" r="3"></circle><circle cx="511" cy="136" r="3"></circle><circle cx="94" cy="435" r="3"></circle><circle cx="530" cy="434" r="3"></circle><circle cx="310" cy="512" r="3"></circle>
           </svg>
-          <div class="hub"><div><strong data-es="Edu Nexus" data-en="Edu Nexus">Edu Nexus</strong><small data-es="Conectamos talento" data-en="Connecting talent">Conectamos talento</small></div></div>
+        <div class="hub"><div><strong data-es="Edu Nexus" data-en="Edu Nexus">Edu Nexus</strong><small data-es="Conectamos talento" data-en="Connecting talent">Conectamos talento</small></div></div>
           <div class="map-node node-spain"><div class="avatar"><img src="img/chicos2r.png" alt="Niñas sonrientes / Smiling girls"></div><span data-es="España" data-en="Spain">España</span><small data-es="Coordinación" data-en="Coordination">Coordinación</small></div>
           <div class="map-node node-europe"><div class="avatar"><img src="img/chicos4r.png" alt="Niñas participantes / Girl participants"></div><span data-es="Europa" data-en="Europe">Europa</span><small data-es="Universidades" data-en="Universities">Universidades</small></div>
           <div class="map-node node-argentina"><div class="avatar"><img src="img/chicos1r.png" alt="Grupo de niños / Group of children"></div><span data-es="América Latina" data-en="Latin America">América Latina</span><small data-es="Comunidades" data-en="Communities">Comunidades</small></div>
@@ -447,7 +453,7 @@
           <article class="project-card"><div class="project-image"><img src="img/image4.jpg" alt="Comunidad educativa / Education community"></div><div class="project-body"><div class="project-kicker" data-es="Energía · Patagonia" data-en="Energy · Patagonia">Energía · Patagonia</div><h3 data-es="Hidrógeno verde para el territorio" data-en="Green hydrogen for the territory">Hidrógeno verde para el territorio</h3><p data-es="Posgrados y transferencia tecnológica para acompañar la transición energética." data-en="Postgraduate learning and technology transfer to support the energy transition.">Posgrados y transferencia tecnológica para acompañar la transición energética.</p><span class="project-arrow" data-es="Descubrir el proyecto →" data-en="Discover the project →">Descubrir el proyecto →</span></div></article>
           <article class="project-card"><div class="project-image"><img src="img/imagen5.jpg" alt="Agua y salud pública / Water and public health"></div><div class="project-body"><div class="project-kicker" data-es="Agua · Paraguay" data-en="Water · Paraguay">Agua · Paraguay</div><h3 data-es="Agua pura, alimentos seguros y salud" data-en="Clean water, safe food and health">Agua pura, alimentos seguros y salud</h3><p data-es="Una alianza para fortalecer capacidades universitarias y proteger el bienestar de las comunidades." data-en="A partnership strengthening university capacity and protecting community wellbeing.">Una alianza para fortalecer capacidades universitarias y proteger el bienestar de las comunidades.</p><span class="project-arrow" data-es="Conocer la alianza →" data-en="Meet the partnership →">Conocer la alianza →</span></div></article>
           <article class="project-card"><div class="project-image"><img src="img/imagen6.jpg" alt="Gestión sostenible del agua / Sustainable water management"></div><div class="project-body"><div class="project-kicker" data-es="Investigación · Perú" data-en="Research · Peru">Investigación · Perú</div><h3 data-es="Agua sostenible, conocimiento aplicado" data-en="Sustainable water, applied knowledge">Agua sostenible, conocimiento aplicado</h3><p data-es="Investigación aplicada y formación técnica para instituciones que miran hacia el futuro." data-en="Applied research and technical training for institutions looking to the future.">Investigación aplicada y formación técnica para instituciones que miran hacia el futuro.</p><span class="project-arrow" data-es="Explorar capacidades →" data-en="Explore capabilities →">Explorar capacidades →</span></div></article>
-          <article class="project-card"><div class="project-image"><img src="img/imagen7.jpg" alt="Electromovilidad / Electric mobility"></div><div class="project-body"><div class="project-kicker" data-es="Movilidad · España" data-en="Mobility · Spain">Movilidad · España</div><h3 data-es="Del motor de combustión a la movilidad eléctrica" data-en="From combustion engines to electric mobility">Del motor de combustión a la movilidad eléctrica</h3><p data-es="Talleres piloto y formación técnica para convertir ideas de transición en empleos reales." data-en="Pilot workshops and technical training turning transition ideas into real jobs.">Talleres piloto y formación técnica para convertir ideas de transición en empleos reales.</p><span class="project-arrow" data-es="Ver la red técnica →" data-en="See the technical network →">Ver la red técnica →</span></div></article>
+          <article class="project-card"><div class="project-image"><img src="img/imagen8.jpg" alt="Electromovilidad / Electric mobility"></div><div class="project-body"><div class="project-kicker" data-es="Movilidad · España" data-en="Mobility · Spain">Movilidad · España</div><h3 data-es="Del motor de combustión a la movilidad eléctrica" data-en="From combustion engines to electric mobility">Del motor de combustión a la movilidad eléctrica</h3><p data-es="Talleres piloto y formación técnica para convertir ideas de transición en empleos reales." data-en="Pilot workshops and technical training turning transition ideas into real jobs.">Talleres piloto y formación técnica para convertir ideas de transición en empleos reales.</p><span class="project-arrow" data-es="Ver la red técnica →" data-en="See the technical network →">Ver la red técnica →</span></div></article>
         </div>
       </div>
       <div class="carousel-note" data-es="Pasa el cursor para pausar · El carrusel avanza solo de izquierda a derecha" data-en="Hover to pause · The carousel moves automatically from left to right">Pasa el cursor para pausar · El carrusel avanza solo de izquierda a derecha</div>
@@ -485,17 +491,19 @@
             <div class="identity-row"><span data-es="Nombre legal" data-en="Legal name">Nombre legal</span><strong>Edu Nexus Consulting Spain</strong></div>
           </div>
         </div>
-        <form class="contact-form" id="contactForm" action="https://formsubmit.co/el/bozixa" method="POST">
+        <form class="contact-form" id="contactForm" action="https://formsubmit.co/ajax/info@edunexusspain.eu" method="POST" accept-charset="UTF-8">
           <input type="hidden" name="_subject" value="Nuevo mensaje de contacto - Edu Nexus Spain">
+          <input type="hidden" name="_url" value="https://edunexusspain.eu/">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
+          <div class="form-honey" aria-hidden="true"><label for="website">Website</label><input id="website" name="_honey" type="text" tabindex="-1" autocomplete="off"></div>
           <div class="field-row">
             <div class="field"><label for="nombre" data-es="Nombre" data-en="Name">Nombre</label><input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre / Your name" required></div>
             <div class="field"><label for="email" data-es="Email" data-en="Email">Email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="tu@email.com / you@email.com" required></div>
           </div>
           <div class="field"><label for="organizacion" data-es="Institución" data-en="Institution">Institución</label><input id="organizacion" name="organizacion" type="text" autocomplete="organization" placeholder="Universidad, centro, empresa… / University, centre, company…"></div>
           <div class="field"><label for="mensaje" data-es="Mensaje" data-en="Message">Mensaje</label><textarea id="mensaje" name="mensaje" placeholder="Cuéntanos brevemente tu idea… / Tell us briefly about your idea…" required></textarea></div>
-          <div class="form-footer"><button class="button button-primary" type="submit"><span data-es="Enviar mensaje" data-en="Send message">Enviar mensaje</span><span aria-hidden="true">↗</span></button><p class="form-status" id="formStatus" role="status" aria-live="polite"></p></div>
+          <div class="form-footer"><button class="button button-primary" type="submit"><span data-es="Enviar mensaje" data-en="Send message">Enviar mensaje</span><span aria-hidden="true">↗</span></button><p class="form-status" id="formStatus" role="status" aria-live="polite"></p><a class="form-fallback" id="formFallback" href="mailto:info@edunexusspain.eu?subject=Contacto%20Edu%20Nexus%20Spain" data-es="Enviar por email" data-en="Send by email">Enviar por email</a></div>
         </form>
       </div>
     </section>
@@ -594,10 +602,41 @@
       carousel.addEventListener('focusout', () => { track.style.animationPlayState = 'running'; });
     }
 
-    contactForm.addEventListener('submit', () => {
-      formStatus.textContent = root.dataset.lang === 'en'
-        ? 'Opening your email confirmation… / Abriendo la confirmación del email…'
-        : 'Abriendo la confirmación del email… / Opening your email confirmation…';
+    const formFallback = document.getElementById('formFallback');
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const submitLabel = submitButton.querySelector('[data-es]');
+
+    function setFormStatus(es, en, state = '') {
+      formStatus.textContent = root.dataset.lang === 'en' ? en : es;
+      formStatus.dataset.state = state;
+    }
+
+    contactForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      formFallback.classList.remove('visible');
+      submitButton.disabled = true;
+      setFormStatus('Enviando mensaje…', 'Sending message…');
+      const formData = new FormData(contactForm);
+      formData.set('_replyto', formData.get('email') || '');
+      formData.set('_subject', root.dataset.lang === 'en' ? 'New contact message - Edu Nexus Spain' : 'Nuevo mensaje de contacto - Edu Nexus Spain');
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { Accept: 'application/json' }
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || result.success === false || result.success === 'false' || result.success === undefined) throw new Error('FormSubmit request failed');
+        contactForm.reset();
+        setFormStatus('Mensaje enviado correctamente. Te responderemos pronto.', 'Message sent successfully. We will reply soon.', 'success');
+      } catch (error) {
+        setFormStatus('No se pudo enviar ahora. Puedes escribirnos directamente por email.', 'The message could not be sent now. You can email us directly.', 'error');
+        formFallback.classList.add('visible');
+      } finally {
+        submitButton.disabled = false;
+        submitLabel.textContent = root.dataset.lang === 'en' ? 'Send message' : 'Enviar mensaje';
+      }
     });
   </script>
 </body>
