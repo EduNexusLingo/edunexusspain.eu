@@ -1,827 +1,604 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es" data-lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Edu Nexus Spain — Red europea de cooperación educativa</title>
-<meta name="description" content="Edu Nexus Spain diseña y coordina consorcios Erasmus+ entre universidades de Europa y América Latina, en hidrógeno verde, agua, salud y electromovilidad.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-
-  :root{
-    --bg:#060A0E;
-    --bg2:#0A1319;
-    --panel: rgba(255,255,255,0.045);
-    --panel-border: rgba(255,255,255,0.09);
-    --ink:#EAF3F0;
-    --ink-soft:#93A9A3;
-    --ink-dim:#5D716C;
-    --teal:#45E8C8;
-    --violet:#7C93FF;
-    --gold:#F0B429;
-    --line: rgba(255,255,255,0.10);
-    --max:1120px;
-  }
-
-  *{ box-sizing:border-box; }
-  html{ scroll-behavior:smooth; }
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--ink);
-    font-family:'Inter', sans-serif;
-    font-size:17px;
-    line-height:1.65;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  h1,h2,h3{
-    font-family:'Space Grotesk', sans-serif;
-    color:var(--ink);
-    margin:0;
-    line-height:1.12;
-    font-weight:600;
-    letter-spacing:-0.01em;
-  }
-  p{ margin:0 0 1em; color:var(--ink-soft); max-width:62ch; }
-  a{ color:inherit; }
-  .wrap{ max-width:var(--max); margin:0 auto; padding:0 32px; position:relative; z-index:2; }
-  section{ padding:120px 0; position:relative; }
-  .rule{ border:none; border-top:1px solid var(--line); }
-
-  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
-    outline:2px solid var(--teal); outline-offset:3px;
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    html{ scroll-behavior:auto; }
-    *{ animation:none !important; transition:none !important; }
-  }
-
-  /* ---------- Ambient background network (site-wide) ---------- */
-  #bgCanvas{
-    position:fixed; inset:0; width:100vw; height:100vh;
-    z-index:0; pointer-events:none;
-    background:
-      radial-gradient(ellipse 900px 600px at 15% 0%, rgba(69,232,200,0.07), transparent 60%),
-      radial-gradient(ellipse 900px 700px at 100% 40%, rgba(124,147,255,0.06), transparent 60%),
-      var(--bg);
-  }
-
-  /* ---------- Nav ---------- */
-  header{
-    position:sticky; top:0; z-index:50;
-    background:rgba(6,10,14,0.72);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:20px 32px; max-width:var(--max); margin:0 auto;
-  }
-  .logo{
-    font-family:'Space Grotesk', sans-serif; font-size:20px; font-weight:600;
-    display:flex; align-items:center; gap:10px; letter-spacing:-0.01em;
-  }
-  .logo .logo-img{
-    width:34px; height:34px; border-radius:50%; display:block; object-fit:cover;
-    box-shadow:0 0 0 1px rgba(69,232,200,0.35);
-  }
-  .logo .thin{ font-weight:400; color:var(--ink-soft); }
-  nav.links{ display:flex; }
-  nav.links a{
-    text-decoration:none; font-size:14.5px; color:var(--ink-soft);
-    padding:6px 0; margin-left:34px; border-bottom:1px solid transparent;
-    transition:color .2s;
-  }
-  nav.links a:first-child{ margin-left:0; }
-  nav.links a:hover{ color:var(--teal); }
-  .nav-toggle{ display:none; background:none; border:none; cursor:pointer; padding:6px; }
-  .nav-toggle span{ display:block; width:22px; height:2px; background:var(--ink); margin:5px 0; }
-
-  @media (max-width:760px){
-    nav.links{
-      position:absolute; top:100%; left:0; right:0;
-      background:rgba(6,10,14,0.97); flex-direction:column;
-      border-bottom:1px solid var(--line);
-      max-height:0; overflow:hidden;
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edu Nexus Spain | Redes educativas que conectan Europa y América Latina</title>
+  <meta name="description" content="Edu Nexus Spain conecta universidades, investigación e industria a través de consorcios Erasmus+ entre Europa y América Latina. / Edu Nexus Spain connects universities, research and industry through Erasmus+ consortia between Europe and Latin America.">
+  <meta name="theme-color" content="#071329">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy-950: #050b1b;
+      --navy-900: #071329;
+      --navy-800: #0c1b3a;
+      --navy-700: #132957;
+      --ink: #f5f8ff;
+      --muted: #aab9d8;
+      --muted-2: #7588ad;
+      --cyan: #54e5ef;
+      --cyan-strong: #12c9da;
+      --blue: #7d86ff;
+      --yellow: #ffe56a;
+      --pink: #f7a4d8;
+      --line: rgba(175, 202, 255, .16);
+      --glass: rgba(18, 38, 78, .56);
+      --glass-strong: rgba(19, 48, 100, .72);
+      --shadow: 0 24px 80px rgba(0, 0, 0, .35);
+      --radius-xl: 32px;
+      --radius-lg: 22px;
+      --radius-md: 15px;
+      --max: 1220px;
+      --ease-out: cubic-bezier(.23, 1, .32, 1);
     }
-    nav.links.open{ max-height:320px; }
-    nav.links a{ padding:16px 32px; margin-left:0; border-bottom:1px solid var(--line); }
-    .nav-toggle{ display:block; }
-  }
 
-  /* ---------- Hero ---------- */
-  .hero-section{ padding:0; min-height:92vh; display:flex; align-items:center; overflow:hidden; }
-  #heroCanvas{ position:absolute; inset:0; width:100%; height:100%; z-index:1; }
-  .hero-inner{
-    position:relative; z-index:2;
-    display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;
-    width:100%; padding:60px 0;
-  }
-  .hero-copy{
-    background:rgba(6,10,14,0.55);
-    backdrop-filter:blur(6px);
-    padding:8px 8px 8px 0;
-  }
-  .eyebrow{
-    font-size:13.5px; color:var(--teal); font-weight:500; margin-bottom:20px;
-    display:flex; align-items:center; gap:8px;
-  }
-  .eyebrow .bar{ width:22px; height:1px; background:var(--teal); display:inline-block; }
-  .hero-copy h1{ font-size:clamp(34px,4.6vw,54px); }
-  .hero-copy p.lede{
-    font-size:18.5px; margin-top:22px; max-width:44ch; color:var(--ink-soft);
-  }
-  .hero-ctas{ display:flex; margin-top:36px; flex-wrap:wrap; }
-  .btn{
-    display:inline-block; padding:14px 28px; font-size:14.5px; font-weight:500;
-    text-decoration:none; border-radius:3px; border:1px solid transparent;
-    font-family:'Space Grotesk', sans-serif;
-    transition:transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease, color .18s ease;
-  }
-  .btn + .btn{ margin-left:16px; }
-  .btn-solid{ background:var(--teal); color:#04211C; }
-  .btn-solid:hover{ box-shadow:0 0 24px rgba(69,232,200,0.45); transform:translateY(-1px); }
-  .btn-outline{ background:transparent; color:var(--ink); border-color:var(--panel-border); }
-  .btn-outline:hover{ border-color:var(--teal); color:var(--teal); }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 4%, rgba(84, 229, 239, .13), transparent 26rem),
+        radial-gradient(circle at 88% 12%, rgba(125, 134, 255, .15), transparent 32rem),
+        var(--navy-950);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      opacity: .36;
+      background-image: radial-gradient(rgba(255,255,255,.7) .7px, transparent .7px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.95), transparent 78%);
+    }
+    a { color: inherit; }
+    button, input, textarea { font: inherit; }
+    button { cursor: pointer; }
+    img { max-width: 100%; }
+    ::selection { color: var(--navy-950); background: var(--yellow); }
+    :focus-visible { outline: 3px solid var(--yellow); outline-offset: 4px; }
+    .container { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
+    .section { position: relative; padding: 112px 0; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 30px;
+      height: 2px;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--cyan), var(--yellow));
+      box-shadow: 0 0 14px rgba(84,229,239,.8);
+    }
+    h1, h2, h3, .brand-name, .button, .stat-number { font-family: 'Space Grotesk', sans-serif; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: clamp(3rem, 7vw, 6.7rem); line-height: .94; letter-spacing: -.07em; margin-bottom: 27px; }
+    h2 { font-size: clamp(2.15rem, 4vw, 4rem); line-height: .98; letter-spacing: -.055em; margin-bottom: 20px; }
+    h3 { line-height: 1.1; letter-spacing: -.03em; }
+    p { color: var(--muted); }
+    .muted { color: var(--muted); }
+    .section-heading { max-width: 650px; margin-bottom: 52px; }
+    .section-heading p { max-width: 610px; font-size: 18px; }
+    .hero-line { display: inline-block; color: transparent; -webkit-text-fill-color: transparent; -webkit-background-clip: text; background-clip: text; background-color: transparent; }
+    .hero-line-red { background: linear-gradient(112deg, #c96762 0%, #df8273 26%, #eda28a 52%, #d86c67 78%, #c65d5e 100%); -webkit-background-clip: text; background-clip: text; text-shadow: 0 0 28px rgba(220, 112, 102, .12); }
+    .hero-line-yellow { background: linear-gradient(108deg, #f1cf7a 0%, #ffe8a0 26%, #fff2bd 52%, #f8dc8d 78%, #e8c16d 100%); -webkit-background-clip: text; background-clip: text; text-shadow: 0 0 28px rgba(255, 224, 147, .14); }
 
-  .hero-visual{ position:relative; height:520px; }
-  .hub-label{
-    position:absolute; transform:translate(-50%,-130%);
-    font-size:13.5px; white-space:nowrap; pointer-events:none;
-  }
-  .hub-label .name{ font-weight:600; color:var(--ink); }
-  .hub-label .sub{ font-size:11.5px; color:var(--ink-dim); margin-top:1px; }
-  .hub-label.right{ transform:translate(6%,-130%); text-align:left; }
-  .hub-label.left{ transform:translate(-106%,-130%); text-align:right; }
+    /* Navigation */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(175,202,255,.12);
+      background: rgba(5, 11, 27, .72);
+      backdrop-filter: blur(22px);
+    }
+    .nav {
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; min-width: max-content; }
+    .brand-logo { width: 48px; height: 48px; object-fit: cover; border-radius: 50%; box-shadow: 0 0 0 1px rgba(84,229,239,.48), 0 0 26px rgba(84,229,239,.24); }
+    .brand-name { font-size: 19px; font-weight: 700; letter-spacing: -.04em; }
+    .brand-name span { color: var(--cyan); }
+    .nav-links { display: flex; align-items: center; gap: 26px; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 600; transition: color .18s ease; }
+    .nav-links a:hover { color: var(--cyan); }
+    .header-right { display: flex; align-items: center; gap: 16px; }
+    .eu-badge { width: 48px; height: 48px; padding: 3px; border-radius: 50%; background: rgba(255,255,255,.94); box-shadow: 0 0 0 1px rgba(255,229,106,.65), 0 0 28px rgba(255,229,106,.18); }
+    .eu-badge img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+    .lang-switch { display: inline-flex; gap: 3px; padding: 3px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.04); }
+    .lang-switch button { border: 0; border-radius: 999px; padding: 6px 10px; color: var(--muted-2); background: transparent; font-size: 11px; font-weight: 700; }
+    .lang-switch button.active { color: var(--navy-950); background: var(--yellow); }
+    .menu-toggle { display: none; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 12px; color: var(--ink); background: rgba(255,255,255,.04); }
+    .menu-toggle span { display: block; width: 18px; height: 2px; margin: 4px auto; background: currentColor; border-radius: 99px; }
 
-  @media (max-width:900px){
-    .hero-inner{ grid-template-columns:1fr; }
-    .hero-visual{ height:380px; order:2; }
-    .hero-copy{ order:1; }
-  }
+    /* Hero */
+    .hero { min-height: min(850px, calc(100vh - 86px)); display: grid; align-items: center; padding: 76px 0 94px; overflow: hidden; }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, .9fr) minmax(480px, 1.1fr); align-items: center; gap: 50px; }
+    .hero-copy { position: relative; z-index: 2; }
+    .hero-copy .eyebrow { margin-bottom: 24px; }
+    .hero-copy h1 { max-width: 680px; }
+    .hero-copy .lede { max-width: 560px; margin-bottom: 34px; font-size: 20px; line-height: 1.55; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 45px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; padding: 0 19px; border-radius: 13px; border: 1px solid transparent; text-decoration: none; font-size: 13px; font-weight: 700; transition: transform .18s var(--ease-out), box-shadow .18s ease, background .18s ease, border-color .18s ease; }
+    .button:hover { transform: translateY(-3px); }
+    .button:active { transform: scale(.97); }
+    .button-primary { color: var(--navy-950); background: var(--yellow); box-shadow: 0 9px 26px rgba(255,229,106,.18); }
+    .button-primary:hover { box-shadow: 0 13px 34px rgba(255,229,106,.3); }
+    .button-ghost { color: var(--ink); border-color: var(--line); background: rgba(255,255,255,.035); }
+    .button-ghost:hover { border-color: rgba(84,229,239,.65); background: rgba(84,229,239,.08); }
+    .hero-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 15px; color: var(--muted-2); font-size: 12px; }
+    .hero-meta strong { color: var(--ink); font-weight: 600; }
+    .dot-divider { width: 4px; height: 4px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 8px var(--cyan); }
 
-  /* ---------- Section framing ---------- */
-  .section-head{
-    display:flex; justify-content:space-between; align-items:flex-end;
-    margin-bottom:52px; gap:24px; flex-wrap:wrap;
-  }
-  .section-head .eyebrow{ margin-bottom:14px; }
-  .section-head h2{ font-size:36px; }
-  .section-head p{ margin:0; font-size:15.5px; }
+    /* Network illustration */
+    .network-stage { position: relative; min-height: 570px; isolation: isolate; }
+    .network-stage::before { content: ''; position: absolute; width: 410px; height: 410px; left: 50%; top: 51%; transform: translate(-50%,-50%); border-radius: 50%; background: radial-gradient(circle, rgba(84,229,239,.14), transparent 68%); filter: blur(7px); z-index: -1; }
+    .network-ring { position: absolute; inset: 7% 5%; border: 1px solid rgba(84,229,239,.21); border-radius: 50%; transform: rotate(-9deg); }
+    .network-ring::after { content: ''; position: absolute; inset: 13%; border: 1px dashed rgba(255,229,106,.24); border-radius: 50%; }
+    .network-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    .network-svg path { fill: none; stroke: url(#lineGradient); stroke-width: 1.5; stroke-dasharray: 6 8; animation: dash 16s linear infinite; opacity: .85; }
+    .network-svg circle { fill: var(--cyan); filter: drop-shadow(0 0 6px rgba(84,229,239,.9)); }
+    @keyframes dash { to { stroke-dashoffset: -110; } }
+    .hub { position: absolute; left: 50%; top: 50%; width: 176px; height: 176px; transform: translate(-50%,-50%); display: grid; place-items: center; text-align: center; border: 1px solid rgba(84,229,239,.75); border-radius: 50%; background: radial-gradient(circle at 35% 25%, rgba(84,229,239,.24), rgba(9,26,60,.94) 69%); box-shadow: 0 0 0 11px rgba(84,229,239,.055), 0 0 54px rgba(84,229,239,.28), inset 0 0 40px rgba(125,134,255,.15); }
+    .hub::before, .hub::after { content: ''; position: absolute; border-radius: 50%; border: 1px solid rgba(84,229,239,.24); animation: pulse 3.7s ease-in-out infinite; }
+    .hub::before { inset: -20px; }
+    .hub::after { inset: -34px; animation-delay: .8s; opacity: .42; }
+    @keyframes pulse { 50% { transform: scale(1.05); opacity: .7; } }
+    .hub strong { display: block; max-width: 120px; font-size: 16px; line-height: 1.1; }
+    .hub small { display: block; margin-top: 7px; color: var(--yellow); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+    .map-node { position: absolute; display: grid; justify-items: center; gap: 8px; width: 126px; color: var(--ink); text-align: center; font-size: 11px; font-weight: 700; }
+    .map-node small { color: var(--muted-2); font-size: 10px; font-weight: 500; }
+    .avatar { position: relative; display: grid; place-items: center; width: 110px; height: 110px; padding: 7px; overflow: hidden; border: 1px solid rgba(84,229,239,.47); border-radius: 50%; background: radial-gradient(circle at 42% 30%, rgba(84,229,239,.32), rgba(35,73,128,.42) 48%, rgba(7,19,48,.73) 76%); box-shadow: 0 0 0 6px rgba(84,229,239,.045), 0 12px 30px rgba(0,0,0,.24), inset 0 0 24px rgba(125,134,255,.2); transition: transform .28s var(--ease-out), box-shadow .28s ease, border-color .28s ease, background .28s ease; }
+    .avatar::before { content: ''; position: absolute; inset: 0; z-index: 1; border-radius: 50%; pointer-events: none; background: linear-gradient(145deg, rgba(84,229,239,.42), rgba(25,86,157,.24) 44%, rgba(5,16,45,.42)); mix-blend-mode: color; }
+    .avatar::after { content: ''; position: absolute; inset: 6px; z-index: 2; border: 1px solid rgba(255,229,106,.24); border-radius: 50%; pointer-events: none; box-shadow: inset 0 0 18px rgba(84,229,239,.16); }
+    .avatar img { position: relative; z-index: 0; width: 100%; height: 100%; object-fit: contain; object-position: center; filter: grayscale(.82) sepia(.48) hue-rotate(147deg) saturate(1.85) brightness(.92) contrast(.88); opacity: .62; mix-blend-mode: screen; transition: transform .28s var(--ease-out), filter .28s ease, opacity .28s ease; }
+    .map-node:hover .avatar { transform: translateY(-6px) scale(1.06); border-color: rgba(255,229,106,.78); background: radial-gradient(circle at 42% 30%, rgba(84,229,239,.4), rgba(35,73,128,.5) 48%, rgba(7,19,48,.76) 76%); box-shadow: 0 0 0 8px rgba(255,229,106,.06), 0 0 34px rgba(84,229,239,.38), inset 0 0 25px rgba(255,229,106,.1); }
+    .map-node:hover .avatar img { transform: scale(1.06); filter: grayscale(.62) sepia(.35) hue-rotate(145deg) saturate(2.2) brightness(1) contrast(.92); opacity: .78; }
+    .node-spain { left: 9%; top: 15%; }
+    .node-europe { right: 7%; top: 16%; }
+    .node-argentina { left: 1%; bottom: 12%; }
+    .node-latam { right: 2%; bottom: 11%; }
+    .node-core { left: 50%; bottom: 2%; transform: translateX(-50%); }
+    .node-core .avatar { width: 88px; height: 88px; }
+    .sparkle-zone { position: relative; }
+    .sparkle { position: fixed; z-index: 100; width: 7px; height: 7px; pointer-events: none; border-radius: 50%; background: var(--yellow); box-shadow: 0 0 8px 2px var(--yellow), 0 0 18px 5px rgba(84,229,239,.72); animation: sparkle-pop .65s var(--ease-out) forwards; }
+    @keyframes sparkle-pop { from { opacity: 1; transform: scale(.8) rotate(0deg); } to { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(0) rotate(90deg); } }
 
-  /* ---------- About ---------- */
-  #quienes-somos{ background:var(--bg2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
-  .about-grid{ display:grid; grid-template-columns:0.8fr 1.2fr; gap:64px; }
-  .about-grid h2{ font-size:34px; max-width:11ch; }
-  .about-copy p:first-child{ font-size:18px; color:var(--ink); }
-  .capabilities{ margin-top:8px; display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
-  .capability{
-    background:var(--bg2); padding:26px 24px;
-    transition:background .2s;
-  }
-  .capability:hover{ background:rgba(69,232,200,0.05); }
-  .capability h3{
-    font-size:15.5px; font-family:'Space Grotesk',sans-serif; font-weight:600; margin-bottom:8px;
-    display:flex; align-items:center; gap:9px;
-  }
-  .capability h3 i{ width:6px; height:6px; border-radius:50%; background:var(--teal); box-shadow:0 0 8px 1px rgba(69,232,200,.6); flex:none; }
-  .capability p{ font-size:14.5px; margin:0; }
+    /* Impact strip */
+    .impact-strip { position: relative; z-index: 2; margin-top: -8px; }
+    .impact-card { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--line); box-shadow: var(--shadow); }
+    .impact-item { padding: 24px 28px; background: linear-gradient(135deg, rgba(19,48,100,.74), rgba(7,19,41,.82)); }
+    .stat-number { display: block; color: var(--yellow); font-size: 36px; letter-spacing: -.06em; }
+    .impact-item p { margin: 5px 0 0; font-size: 13px; }
 
-  @media (max-width:900px){
-    .about-grid{ grid-template-columns:1fr; gap:32px; }
-    .capabilities{ grid-template-columns:1fr; }
-  }
+    /* About */
+    .about-section { overflow: hidden; }
+    .about-section::before { content: ''; position: absolute; width: 360px; height: 360px; right: -150px; top: 120px; border-radius: 50%; border: 1px solid rgba(125,134,255,.2); box-shadow: 0 0 0 44px rgba(125,134,255,.025), 0 0 0 88px rgba(125,134,255,.02); }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; align-items: start; }
+    .about-copy > p:first-of-type { color: var(--ink); font-size: 20px; }
+    .about-copy p { max-width: 530px; }
+    .mini-signature { display: inline-flex; align-items: center; gap: 10px; margin-top: 12px; color: var(--muted-2); font-size: 12px; }
+    .mini-signature img { width: 34px; height: 34px; border-radius: 50%; }
+    .capability-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 13px; }
+    .capability { min-height: 180px; padding: 25px; border: 1px solid var(--line); border-radius: var(--radius-md); background: linear-gradient(135deg, rgba(25,54,110,.66), rgba(9,23,51,.62)); transition: transform .25s var(--ease-out), border-color .25s ease, box-shadow .25s ease; }
+    .capability:hover { transform: translateY(-6px); border-color: rgba(84,229,239,.57); box-shadow: 0 18px 40px rgba(0,0,0,.22), 0 0 28px rgba(84,229,239,.08); }
+    .capability-icon { display: grid; place-items: center; width: 39px; height: 39px; margin-bottom: 22px; border: 1px solid rgba(255,229,106,.35); border-radius: 12px; color: var(--yellow); background: rgba(255,229,106,.07); font-size: 18px; }
+    .capability h3 { margin-bottom: 8px; font-size: 17px; }
+    .capability p { margin: 0; font-size: 13px; }
 
-  /* ---------- Projects ---------- */
-  .project{
-    display:grid; grid-template-columns:180px 1fr auto; gap:28px; align-items:start;
-    padding:32px 28px; border:1px solid var(--line); border-top:none;
-    background:var(--panel);
-    transition:border-color .2s, background .2s;
-  }
-  .project:first-of-type{ border-top:1px solid var(--line); border-radius:6px 6px 0 0; }
-  .project:last-of-type{ border-radius:0 0 6px 6px; }
-  .project:hover{ border-color:rgba(69,232,200,0.35); background:rgba(69,232,200,0.035); }
-  .project .acronym{
-    font-family:'Space Grotesk', sans-serif; font-size:24px; font-weight:600; color:var(--ink);
-    line-height:1.15;
-  }
-  .project .country{ font-size:13px; color:var(--ink-dim); margin-top:8px; }
-  .project h3{ font-size:18px; font-weight:600; font-family:'Inter',sans-serif; margin-bottom:8px; color:var(--ink); }
-  .project p{ font-size:15px; margin:0; }
-  .project .tags{ display:flex; flex-direction:column; gap:8px; align-items:flex-end; min-width:150px; }
-  .tag{
-    font-size:12px; padding:5px 11px; border-radius:20px; white-space:nowrap;
-    border:1px solid var(--panel-border); color:var(--ink-soft);
-  }
-  .tag.status-dev{ border-color:var(--teal); color:var(--teal); }
-  .tag.status-reserve{ border-color:var(--gold); color:var(--gold); }
+    /* Projects carousel */
+    .projects-section { overflow: hidden; border-top: 1px solid rgba(175,202,255,.08); border-bottom: 1px solid rgba(175,202,255,.08); background: linear-gradient(180deg, rgba(9,24,54,.62), rgba(5,11,27,.25)); }
+    .project-carousel { position: relative; width: 100vw; margin-left: calc(50% - 50vw); overflow: hidden; padding: 4px 0 16px; }
+    .project-track { display: flex; width: max-content; gap: 18px; padding-left: 24px; animation: move-right 45s linear infinite; }
+    .project-carousel:hover .project-track { animation-play-state: paused; }
+    @keyframes move-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+    .project-card { position: relative; width: 330px; min-height: 410px; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--glass); box-shadow: 0 14px 44px rgba(0,0,0,.2); transition: transform .3s var(--ease-out), border-color .3s ease, box-shadow .3s ease; }
+    .project-card:hover { transform: translateY(-9px); border-color: rgba(84,229,239,.64); box-shadow: 0 22px 46px rgba(0,0,0,.34), 0 0 32px rgba(84,229,239,.12); }
+    .project-image { height: 218px; overflow: hidden; background: var(--navy-700); }
+    .project-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease-out), filter .5s ease; }
+    .project-card:hover .project-image img { transform: scale(1.07); filter: saturate(1.15); }
+    .project-body { display: flex; flex-direction: column; min-height: 192px; padding: 22px; }
+    .project-kicker { margin-bottom: 12px; color: var(--yellow); font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .project-card h3 { margin-bottom: 9px; font-size: 20px; }
+    .project-card p { margin: 0; font-size: 13px; }
+    .project-arrow { margin-top: auto; padding-top: 17px; color: var(--cyan); font-size: 12px; font-weight: 700; }
+    .carousel-note { display: flex; justify-content: center; gap: 8px; margin-top: 20px; color: var(--muted-2); font-size: 12px; }
+    .carousel-note::before { content: '←'; color: var(--yellow); }
+    .carousel-note::after { content: '→'; color: var(--cyan); }
 
-  @media (max-width:760px){
-    .project{ grid-template-columns:1fr; }
-    .project .tags{ flex-direction:row; align-items:flex-start; }
-  }
+    /* Network section */
+    .network-section { overflow: hidden; }
+    .network-banner { display: grid; grid-template-columns: 1.1fr .9fr; gap: 32px; align-items: center; padding: 38px; border: 1px solid rgba(84,229,239,.24); border-radius: var(--radius-xl); background: linear-gradient(120deg, rgba(23,62,119,.72), rgba(11,28,63,.62)); box-shadow: 0 0 70px rgba(84,229,239,.07); }
+    .network-banner h2 { max-width: 560px; margin-bottom: 12px; }
+    .network-banner p { max-width: 570px; margin-bottom: 0; }
+    .country-cloud { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 9px; }
+    .country-pill { padding: 10px 13px; border: 1px solid rgba(175,202,255,.2); border-radius: 999px; color: var(--ink); background: rgba(255,255,255,.055); font-size: 12px; font-weight: 600; }
+    .country-pill:nth-child(2n) { color: var(--yellow); border-color: rgba(255,229,106,.25); }
+    .country-pill:nth-child(3n) { color: var(--cyan); border-color: rgba(84,229,239,.25); }
 
-  /* ---------- Contact ---------- */
-  #contacto{ background:var(--bg2); border-top:1px solid var(--line); }
-  .contact-grid{ display:grid; grid-template-columns:0.85fr 1.15fr; gap:64px; }
-  .contact-info dl{ margin:32px 0 0; }
-  .contact-info dt{ font-size:12.5px; color:var(--ink-dim); margin-top:22px; }
-  .contact-info dd{ margin:5px 0 0; font-size:16px; color:var(--ink); }
-  .contact-info a{ text-decoration:none; border-bottom:1px solid var(--panel-border); }
-  .contact-info a:hover{ border-color:var(--teal); color:var(--teal); }
+    /* Contact */
+    .contact-section { padding-bottom: 88px; }
+    .contact-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 80px; }
+    .contact-lede { max-width: 470px; font-size: 18px; }
+    .contact-list { display: grid; gap: 19px; margin: 33px 0 0; }
+    .contact-item dt { color: var(--muted-2); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .contact-item dd { margin: 4px 0 0; color: var(--ink); font-size: 16px; }
+    .contact-item a { text-decoration: none; border-bottom: 1px solid rgba(84,229,239,.35); }
+    .contact-item a:hover { color: var(--cyan); border-color: var(--cyan); }
+    .identity-panel { margin-top: 36px; padding: 22px; border: 1px solid rgba(255,229,106,.23); border-radius: var(--radius-md); background: linear-gradient(135deg, rgba(255,229,106,.07), rgba(255,255,255,.025)); }
+    .identity-panel h3 { margin-bottom: 17px; color: var(--yellow); font-size: 15px; }
+    .identity-row { display: flex; justify-content: space-between; gap: 20px; padding: 10px 0; border-top: 1px solid rgba(255,255,255,.09); color: var(--muted-2); font-size: 12px; }
+    .identity-row strong { color: var(--ink); text-align: right; font-weight: 600; }
+    .contact-form { display: grid; gap: 15px; padding: 30px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: linear-gradient(145deg, rgba(21,50,102,.68), rgba(8,20,45,.72)); box-shadow: var(--shadow); }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    .field { display: grid; gap: 7px; }
+    label { color: var(--muted-2); font-size: 12px; font-weight: 600; }
+    input, textarea { width: 100%; border: 1px solid rgba(175,202,255,.17); border-radius: 11px; padding: 13px 14px; color: var(--ink); background: rgba(2,9,24,.35); transition: border-color .18s ease, background .18s ease, box-shadow .18s ease; }
+    input:focus, textarea:focus { border-color: rgba(84,229,239,.72); background: rgba(2,9,24,.6); box-shadow: 0 0 0 4px rgba(84,229,239,.08); outline: 0; }
+    input::placeholder, textarea::placeholder { color: #5f7197; }
+    textarea { min-height: 140px; resize: vertical; }
+    .form-footer { display: flex; align-items: center; flex-wrap: wrap; gap: 15px; }
+    .form-status { min-height: 22px; margin: 0; color: var(--cyan); font-size: 12px; }
 
-  form{ display:grid; gap:18px; }
-  .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
-  label{ font-size:13px; color:var(--ink-dim); display:block; margin-bottom:7px; }
-  input, textarea{
-    width:100%; background:rgba(255,255,255,0.03); border:1px solid var(--panel-border); color:var(--ink);
-    padding:13px 14px; font-family:'Inter',sans-serif; font-size:15px; border-radius:4px;
-    transition:border-color .2s, background .2s;
-  }
-  input:focus, textarea:focus{ background:rgba(69,232,200,0.04); border-color:rgba(69,232,200,0.5); }
-  input::placeholder, textarea::placeholder{ color:var(--ink-dim); }
-  textarea{ resize:vertical; min-height:110px; }
-  form .btn-solid{ width:fit-content; border:none; cursor:pointer; }
+    /* Floating contact dock */
+    .social-dock { position: fixed; z-index: 18; left: 20px; bottom: 22px; display: flex; gap: 10px; padding: 8px; border: 1px solid rgba(175,202,255,.2); border-radius: 999px; background: rgba(5, 14, 35, .78); box-shadow: 0 16px 36px rgba(0,0,0,.3), 0 0 28px rgba(84,229,239,.08); backdrop-filter: blur(18px); }
+    .social-link { position: relative; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; text-decoration: none; transition: transform .2s var(--ease-out), box-shadow .2s ease, filter .2s ease; }
+    .social-link:hover { transform: translateY(-5px) scale(1.06); filter: saturate(1.12); }
+    .social-link:active { transform: scale(.96); }
+    .social-link img { display: block; width: 100%; height: 100%; border-radius: 50%; box-shadow: 0 0 0 2px rgba(255,255,255,.12), 0 0 18px rgba(84,229,239,.22); }
+    .social-link::after { content: attr(data-tooltip); position: absolute; left: calc(100% + 10px); bottom: 50%; transform: translateY(50%) translateX(-5px); padding: 7px 10px; border: 1px solid rgba(175,202,255,.2); border-radius: 9px; color: var(--ink); background: rgba(5,14,35,.95); box-shadow: 0 10px 26px rgba(0,0,0,.25); font-size: 11px; font-weight: 600; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .18s ease, transform .18s var(--ease-out); }
+    .social-link:hover::after, .social-link:focus-visible::after { opacity: 1; transform: translateY(50%) translateX(0); }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
-  @media (max-width:760px){
-    .contact-grid{ grid-template-columns:1fr; gap:40px; }
-    .field-row{ grid-template-columns:1fr; }
-  }
+    /* Footer */
+    .site-footer { padding: 32px 0 46px; border-top: 1px solid rgba(175,202,255,.12); background: rgba(2,7,18,.46); }
+    .footer-grid { display: flex; justify-content: space-between; align-items: center; gap: 28px; }
+    .footer-copy { color: var(--muted-2); font-size: 12px; }
+    .footer-branding { display: flex; align-items: center; gap: 18px; }
+    .footer-branding > img { width: 205px; max-height: 60px; object-fit: contain; border-radius: 4px; }
+    .footer-eu-note { max-width: 225px; color: var(--muted-2); font-size: 10px; line-height: 1.35; }
+    .back-top { color: var(--cyan); text-decoration: none; font-size: 12px; font-weight: 700; white-space: nowrap; }
+    .back-top:hover { color: var(--yellow); }
 
-  /* ---------- Footer ---------- */
-  footer{ padding:30px 0; border-top:1px solid var(--line); position:relative; z-index:2; }
-  footer .wrap{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:13px; color:var(--ink-dim); }
-  footer a{ color:var(--ink-soft); text-decoration:none; }
-  footer a:hover{ color:var(--teal); }
-
-
-  /* ---------- Brand watermark ---------- */
-  #quienes-somos{ overflow:hidden; }
-  .brand-watermark{
-    position:absolute; z-index:1; pointer-events:none; user-select:none;
-    width:min(42vw,520px); height:min(42vw,520px); object-fit:contain;
-    right:-4vw; top:50%; transform:translateY(-50%) rotate(-8deg);
-    opacity:.075; filter:grayscale(1) contrast(1.15);
-  }
-  /* ---------- Language switch ---------- */
-  .lang-switch{ display:flex; align-items:center; gap:5px; margin-left:24px; }
-  .lang-switch button{ border:1px solid transparent; background:transparent; color:var(--ink-dim); padding:5px 7px; font:600 11px 'Space Grotesk',sans-serif; cursor:pointer; border-radius:3px; }
-  .lang-switch button.active, .lang-switch button:hover{ color:var(--teal); border-color:rgba(69,232,200,.35); }
-  .nav-actions{ display:flex; align-items:center; }
-  /* ---------- Erasmus identity panel ---------- */
-  .identity-panel{ margin-top:38px; padding:20px 22px; border:1px solid var(--panel-border); background:rgba(69,232,200,.035); border-radius:5px; }
-  .identity-panel h3{ font-size:14px; color:var(--teal); margin-bottom:13px; }
-  .identity-grid{ display:grid; gap:10px; }
-  .identity-grid div{ display:flex; justify-content:space-between; gap:16px; font-size:12.5px; }
-  .identity-grid span:first-child{ color:var(--ink-dim); }
-  .identity-grid span:last-child{ color:var(--ink); text-align:right; }
-  /* ---------- Team carousel ---------- */
-  #equipo{ background:var(--bg); border-top:1px solid var(--line); }
-  .team-carousel{ position:relative; }
-  .team-track{ display:grid; grid-auto-flow:column; grid-auto-columns:minmax(245px, 31%); gap:18px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:thin; scrollbar-color:var(--teal) transparent; padding:4px 2px 17px; }
-  .team-card{ scroll-snap-align:start; border:1px solid var(--panel-border); background:var(--panel); border-radius:5px; overflow:hidden; transition:border-color .25s, transform .25s, background .25s; }
-  .team-card:hover, .team-card:focus-within{ border-color:var(--teal); transform:translateY(-4px); background:rgba(69,232,200,.07); }
-  .team-card img{ display:block; width:100%; aspect-ratio:4/3; object-fit:cover; filter:grayscale(1); transition:filter .4s ease, transform .4s ease; }
-  .team-card:hover img, .team-card:focus-within img{ filter:grayscale(0); transform:scale(1.035); }
-  .team-card-body{ padding:17px 18px 19px; }
-  .team-card h3{ font-size:16px; margin-bottom:5px; }
-  .team-card p{ font-size:13.5px; margin:0; }
-  .carousel-controls{ display:flex; gap:8px; justify-content:flex-end; margin-top:12px; }
-  .carousel-controls button{ width:36px; height:34px; border:1px solid var(--panel-border); background:transparent; color:var(--ink); border-radius:3px; cursor:pointer; font-size:18px; }
-  .carousel-controls button:hover{ border-color:var(--teal); color:var(--teal); }
-  /* ---------- WhatsApp card ---------- */
-  .contact-actions{ display:flex; align-items:center; gap:18px; margin-top:28px; padding-top:24px; border-top:1px solid var(--line); }
-  .qr-card{ display:flex; align-items:center; gap:13px; }
-  .qr-card img{ width:92px; height:92px; background:#fff; padding:5px; border-radius:4px; }
-  .qr-card small{ display:block; color:var(--ink-dim); font-size:11px; max-width:150px; line-height:1.4; }
-  .whatsapp-link{ color:var(--teal); text-decoration:none; font-size:13px; }
-  .form-status{ min-height:24px; margin:0; font-size:13px; }
-  .form-status.success{ color:var(--teal); }
-  .form-status.error{ color:#F0B429; }
-  @media(max-width:900px){ .brand-watermark{ right:-12vw; opacity:.055; } .team-track{ grid-auto-columns:minmax(260px,44%); } }
-  @media(max-width:760px){ .nav-actions{ gap:6px; } .lang-switch{ margin-left:8px; } .lang-switch button{ padding:4px; } .brand-watermark{ width:82vw; height:82vw; right:-28vw; top:42%; opacity:.045; } .team-track{ grid-auto-columns:82%; } .contact-actions{ align-items:flex-start; } .qr-card{ align-items:flex-start; } }
-
-
-  .lang-switch button{ display:inline-flex; align-items:center; gap:5px; }
-  .lang-switch .flag{ font-size:17px; line-height:1; }
-  .lang-switch button span:last-child{ font-size:10px; }
-  @media(max-width:760px){ .lang-switch button span:last-child{ display:none; } .lang-switch .flag{ font-size:19px; } }
-
-</style>
+    @media (max-width: 1000px) {
+      .nav-links { gap: 15px; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-copy { max-width: 760px; }
+      .network-stage { min-height: 510px; max-width: 720px; width: 100%; margin: 0 auto; }
+      .about-grid, .contact-grid { gap: 42px; }
+    }
+    @media (max-width: 780px) {
+      .container { width: min(var(--max), calc(100% - 32px)); }
+      .section { padding: 82px 0; }
+      .nav { min-height: 72px; }
+      .brand-logo, .eu-badge { width: 40px; height: 40px; }
+      .brand-name { font-size: 16px; }
+      .menu-toggle { display: block; }
+      .nav-links { position: absolute; top: calc(100% + 1px); left: 0; right: 0; display: grid; gap: 0; max-height: 0; overflow: hidden; padding: 0 16px; border-bottom: 1px solid transparent; background: rgba(5,11,27,.97); transition: max-height .28s var(--ease-out), padding .28s var(--ease-out), border-color .28s ease; }
+      .nav-links.open { max-height: 360px; padding: 10px 16px; border-color: var(--line); }
+      .nav-links a { padding: 12px 4px; border-bottom: 1px solid rgba(255,255,255,.07); }
+      .header-right { margin-left: auto; }
+      .hero { padding-top: 52px; }
+      h1 { font-size: clamp(3.15rem, 16vw, 5.4rem); }
+      .hero-copy .lede { font-size: 17px; }
+      .network-stage { min-height: 440px; transform: scale(.93); transform-origin: top center; margin-bottom: -30px; }
+      .network-ring { inset: 8% 0; }
+      .hub { width: 140px; height: 140px; }
+      .hub strong { font-size: 14px; }
+      .avatar { width: 83px; height: 83px; }
+      .map-node { width: 96px; font-size: 10px; }
+      .map-node small { font-size: 9px; }
+      .node-spain { left: 1%; }
+      .node-europe { right: 0; }
+      .node-argentina { left: -3%; }
+      .node-latam { right: -3%; }
+      .impact-card, .about-grid, .network-banner, .contact-grid { grid-template-columns: 1fr; }
+      .impact-item { padding: 19px 21px; }
+      .capability-grid { gap: 10px; }
+      .capability { min-height: 165px; padding: 20px; }
+      .network-banner { padding: 27px; }
+      .country-cloud { justify-content: flex-start; }
+      .contact-form { padding: 21px; }
+      .footer-grid { align-items: flex-start; flex-direction: column; }
+      .footer-branding { flex-wrap: wrap; }
+    }
+    @media (max-width: 500px) {
+      .social-dock { left: 12px; bottom: 12px; padding: 6px; gap: 7px; }
+      .social-link { width: 42px; height: 42px; }
+      .social-link::after { display: none; }
+      .header-right { gap: 7px; }
+      .eu-badge { display: none; }
+      .lang-switch button { padding: 6px 8px; }
+      .hero-actions .button { width: 100%; }
+      .network-stage { min-height: 390px; transform: scale(.83); margin-bottom: -65px; }
+      .impact-item { display: grid; grid-template-columns: 58px 1fr; align-items: center; gap: 14px; }
+      .stat-number { font-size: 27px; }
+      .field-row { grid-template-columns: 1fr; }
+      .footer-branding > img { width: 180px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+      .project-track { animation: none; transform: none; }
+    }
+  </style>
 </head>
 <body>
-
-<canvas id="bgCanvas"></canvas>
-
-<header>
-  <div class="nav"><div class="nav-actions">
-    <div class="logo"><img class="logo-img" src="data:image/png;base64,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" alt="Edu Nexus Spain logo"><span>Edu Nexus</span><span class="thin">Spain</span></div>
-    <div class="lang-switch" aria-label="Language selector"><button type="button" data-lang="en" class="active" aria-label="English"><span class="flag" aria-hidden="true">🇬🇧</span><span>English</span></button><button type="button" data-lang="es" aria-label="Español"><span class="flag" aria-hidden="true">🇪🇸</span><span>Español</span></button></div>
-    </div>
-    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" id="navToggle">
-      <span></span><span></span><span></span>
-    </button>
-    <nav class="links" id="navLinks">
-      <a href="#inicio" data-i18n="navHome">Home</a>
-      <a href="#quienes-somos" data-i18n="navAbout">About us</a>
-      <a href="#proyectos" data-i18n="navProjects">Projects</a>
-      <a href="#contacto" data-i18n="navContact">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-
-  <!-- ============ HERO / INICIO ============ -->
-  <section id="inicio" class="hero-section">
-    <canvas id="heroCanvas"></canvas>
-    <div class="wrap hero-inner">
-      <div class="hero-copy">
-        <div class="eyebrow"><span class="bar"></span>ONG · Cooperación educativa UE – América Latina</div>
-        <h1>Una red que conecta universidades en tiempo real</h1>
-        <p class="lede">Edu Nexus Spain diseña, construye y coordina consorcios Erasmus+ entre instituciones de Europa y América Latina — desde la propuesta hasta la ejecución en el terreno.</p>
-        <div class="hero-ctas">
-          <a href="#proyectos" class="btn btn-solid">Ver proyectos activos</a>
-          <a href="#contacto" class="btn btn-outline">Sumar tu institución</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="Edu Nexus Spain">
+        <img class="brand-logo" src="img/Edu Nexus Spain-30cm x 30cm Circular.png" alt="Edu Nexus Spain">
+        <span class="brand-name">Edu <span>Nexus</span> Spain</span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Navegación principal / Main navigation">
+        <a href="#inicio" data-es="Inicio" data-en="Home">Inicio</a>
+        <a href="#quienes-somos" data-es="Quiénes somos" data-en="About us">Quiénes somos</a>
+        <a href="#proyectos" data-es="Proyectos" data-en="Projects">Proyectos</a>
+        <a href="#red" data-es="La red" data-en="The network">La red</a>
+        <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
+      </nav>
+      <div class="header-right">
+        <div class="eu-badge" title="Erasmus+ / Erasmus+"><img src="img/erasmus.png" alt="Erasmus+ / Erasmus+"></div>
+        <div class="lang-switch" role="group" aria-label="Idioma / Language">
+          <button type="button" class="active" data-lang-button="es" aria-pressed="true">ES</button>
+          <button type="button" data-lang-button="en" aria-pressed="false">EN</button>
         </div>
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menú / Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
-      <div class="hero-visual" id="hubLabels"></div>
     </div>
-  </section>
+  </header>
 
-  <!-- ============ QUIÉNES SOMOS ============ -->
-  <section id="quienes-somos">
-    <div class="brand-watermark" aria-hidden="true"></div>
-    <div class="wrap about-grid">
-      <h2 data-i18n="aboutTitle">About us</h2>
-      <div class="about-copy">
-        <p>Edu Nexus Spain es una organización sin fines de lucro con sede en Málaga. Trabajamos con universidades, institutos técnicos y centros de investigación para acceder a fondos europeos de cooperación educativa.</p>
-        <p>Nuestro foco está en programas Erasmus+ de Capacity Building en Educación Superior (CBHE) que conectan a instituciones latinoamericanas con socios europeos, en sectores donde la transferencia de conocimiento tiene impacto directo: energías renovables e hidrógeno verde, agua y salud, y electromovilidad.</p>
-        <p>Acompañamos cada consorcio de principio a fin: identificación de socios, redacción de la propuesta técnica y presupuestaria, coordinación durante la ejecución, y certificación digital de resultados mediante credenciales verificables en blockchain.</p>
-
-        <div class="capabilities">
-          <div class="capability">
-            <h3><i></i>Diseño de propuestas</h3>
-            <p>Redacción técnica y presupuestaria de proyectos Erasmus+ CBHE, alineados a las prioridades estratégicas de la Unión Europea.</p>
+  <main>
+    <section class="hero sparkle-zone" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow" data-es="Conexiones que transforman" data-en="Connections that transform">Conexiones que transforman</span>
+          <h1><span class="hero-line hero-line-red" data-es="El futuro" data-en="The future">El futuro</span><br><span class="hero-line hero-line-yellow" data-es="se aprende" data-en="is learned">se aprende</span> <span class="hero-line hero-line-red" data-es="juntos." data-en="together.">juntos.</span></h1>
+          <p class="lede" data-es="Diseñamos consorcios Erasmus+ que conectan universidades, centros de investigación e industria entre Europa y América Latina." data-en="We design Erasmus+ consortia connecting universities, research centres and industry across Europe and Latin America.">Diseñamos consorcios Erasmus+ que conectan universidades, centros de investigación e industria entre Europa y América Latina.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#proyectos"><span data-es="Ver nuestros proyectos" data-en="Explore our projects">Ver nuestros proyectos</span><span aria-hidden="true">↗</span></a>
+            <a class="button button-ghost" href="#contacto"><span data-es="Sumar una institución" data-en="Join as an institution">Sumar una institución</span><span aria-hidden="true">＋</span></a>
           </div>
-          <div class="capability">
-            <h3><i></i>Construcción de consorcios</h3>
-            <p>Identificación e incorporación de universidades, centros de investigación e industria en Europa y América Latina.</p>
-          </div>
-          <div class="capability">
-            <h3><i></i>Gestión y reporting</h3>
-            <p>Coordinación de work packages, reuniones transnacionales y reportes de ejecución ante la Comisión Europea.</p>
-          </div>
-          <div class="capability">
-            <h3><i></i>Credenciales digitales</h3>
-            <p>Certificación de resultados de aprendizaje mediante micro-credenciales verificables, en alianza con POK.</p>
+          <div class="hero-meta">
+            <strong data-es="Málaga · España" data-en="Málaga · Spain">Málaga · España</strong><span class="dot-divider"></span><span data-es="Europa ⇄ América Latina" data-en="Europe ⇄ Latin America">Europa ⇄ América Latina</span>
           </div>
         </div>
+
+        <div class="network-stage" aria-label="Mapa visual de conexiones entre Europa y América Latina / Visual map of connections between Europe and Latin America">
+          <div class="network-ring"></div>
+          <svg class="network-svg" viewBox="0 0 620 570" aria-hidden="true">
+            <defs><linearGradient id="lineGradient" x1="0" x2="1"><stop offset="0" stop-color="#54e5ef"/><stop offset=".52" stop-color="#ffe56a"/><stop offset="1" stop-color="#7d86ff"/></linearGradient></defs>
+            <path d="M110 135 C 210 135, 222 265, 310 285 S 450 145, 511 136"></path>
+            <path d="M94 435 C 195 418, 224 334, 310 285 S 452 411, 530 434"></path>
+            <path d="M310 285 C 310 350, 312 430, 310 512"></path>
+            <circle cx="110" cy="135" r="3"></circle><circle cx="511" cy="136" r="3"></circle><circle cx="94" cy="435" r="3"></circle><circle cx="530" cy="434" r="3"></circle><circle cx="310" cy="512" r="3"></circle>
+          </svg>
+          <div class="hub"><div><strong data-es="Edu Nexus" data-en="Edu Nexus">Edu Nexus</strong><small data-es="Conectamos talento" data-en="Connecting talent">Conectamos talento</small></div></div>
+          <div class="map-node node-spain"><div class="avatar"><img src="img/chicos2r.png" alt="Niñas sonrientes / Smiling girls"></div><span data-es="España" data-en="Spain">España</span><small data-es="Coordinación" data-en="Coordination">Coordinación</small></div>
+          <div class="map-node node-europe"><div class="avatar"><img src="img/chicos4r.png" alt="Niñas participantes / Girl participants"></div><span data-es="Europa" data-en="Europe">Europa</span><small data-es="Universidades" data-en="Universities">Universidades</small></div>
+          <div class="map-node node-argentina"><div class="avatar"><img src="img/chicos1r.png" alt="Grupo de niños / Group of children"></div><span data-es="América Latina" data-en="Latin America">América Latina</span><small data-es="Comunidades" data-en="Communities">Comunidades</small></div>
+          <div class="map-node node-latam"><div class="avatar"><img src="img/chicos5r.png" alt="Comunidad educativa / Education community"></div><span data-es="Alianzas" data-en="Partnerships">Alianzas</span><small data-es="Impacto local" data-en="Local impact">Impacto local</small></div>
+          <div class="map-node node-core"><div class="avatar"><img src="img/chicos6r.png" alt="Mujer madura / Mature woman"></div><span data-es="Personas en el centro" data-en="People at the centre">Personas en el centro</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container impact-strip">
+      <div class="impact-card">
+        <div class="impact-item"><span class="stat-number">+4</span><p data-es="áreas de impacto · energía, agua, salud y movilidad" data-en="impact areas · energy, water, health and mobility">áreas de impacto · energía, agua, salud y movilidad</p></div>
+        <div class="impact-item"><span class="stat-number">2</span><p data-es="continentes conectados · Europa y América Latina" data-en="connected continents · Europe and Latin America">continentes conectados · Europa y América Latina</p></div>
+        <div class="impact-item"><span class="stat-number">1</span><p data-es="propósito compartido · aprender, colaborar y transformar" data-en="shared purpose · learn, collaborate and transform">propósito compartido · aprender, colaborar y transformar</p></div>
       </div>
     </div>
-  </section>
 
-  <!-- ============ PROYECTOS ============ -->
-  <section id="proyectos">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <div class="eyebrow"><span class="bar"></span>Consorcios activos</div>
-          <h2 data-i18n="projectsTitle">Current projects</h2>
+    <section class="section about-section" id="quienes-somos">
+      <div class="container about-grid">
+        <div class="about-copy">
+          <span class="eyebrow" data-es="Quiénes somos" data-en="About us">Quiénes somos</span>
+          <h2 data-es="Una red con mirada global y raíces humanas." data-en="A global network with a human heartbeat.">Una red con mirada global y raíces humanas.</h2>
+          <p data-es="Edu Nexus Spain convierte prioridades educativas y sociales en alianzas internacionales capaces de dejar capacidad instalada." data-en="Edu Nexus Spain turns educational and social priorities into international partnerships that build lasting capacity.">Edu Nexus Spain convierte prioridades educativas y sociales en alianzas internacionales capaces de dejar capacidad instalada.</p>
+          <p data-es="Acompañamos cada etapa: desde la idea y el consorcio hasta la implementación, las microcredenciales y la medición del impacto." data-en="We support every stage: from the first idea and consortium design to implementation, micro-credentials and impact measurement.">Acompañamos cada etapa: desde la idea y el consorcio hasta la implementación, las microcredenciales y la medición del impacto.</p>
+          <div class="mini-signature"><img src="img/Edu Nexus Spain-30cm x 30cm Circular.png" alt="Edu Nexus Spain"><span data-es="Cooperación que se puede sentir." data-en="Cooperation you can feel.">Cooperación que se puede sentir.</span></div>
         </div>
-        <p>Consorcios Erasmus+ actualmente en desarrollo o presentados.</p>
-      </div>
-
-      <div class="project">
-        <div>
-          <div class="acronym">GREEN-AR 2030</div>
-          <div class="country">Argentina</div>
-        </div>
-        <div>
-          <h3>Capacity building en hidrógeno verde y energías renovables</h3>
-          <p>Formación de posgrado y transferencia tecnológica junto a universidades técnicas argentinas y el Centro Nacional del Hidrógeno de España, para acompañar la transición energética en Patagonia.</p>
-        </div>
-        <div class="tags">
-          <span class="tag">Strand 2</span>
-          <span class="tag status-dev">En desarrollo</span>
+        <div class="capability-grid">
+          <article class="capability"><div class="capability-icon">✦</div><h3 data-es="Consorcios con propósito" data-en="Purpose-led consortia">Consorcios con propósito</h3><p data-es="Unimos socios complementarios para responder a retos reales con una visión europea." data-en="We bring complementary partners together to answer real challenges with a European vision.">Unimos socios complementarios para responder a retos reales con una visión europea.</p></article>
+          <article class="capability"><div class="capability-icon">↗</div><h3 data-es="Capacidad que permanece" data-en="Capacity that lasts">Capacidad que permanece</h3><p data-es="Diseñamos formación, laboratorios y herramientas que continúan después del proyecto." data-en="We design training, labs and tools that continue beyond the project.">Diseñamos formación, laboratorios y herramientas que continúan después del proyecto.</p></article>
+          <article class="capability"><div class="capability-icon">◎</div><h3 data-es="Impacto medible" data-en="Measurable impact">Impacto medible</h3><p data-es="Convertimos resultados en evidencias, microcredenciales y aprendizajes compartidos." data-en="We turn results into evidence, micro-credentials and shared learning.">Convertimos resultados en evidencias, microcredenciales y aprendizajes compartidos.</p></article>
+          <article class="capability"><div class="capability-icon">⌁</div><h3 data-es="Puentes entre mundos" data-en="Bridges between worlds">Puentes entre mundos</h3><p data-es="Facilitamos el diálogo entre academia, sector público, empresas y comunidades." data-en="We facilitate dialogue between academia, public sector, business and communities.">Facilitamos el diálogo entre academia, sector público, empresas y comunidades.</p></article>
         </div>
       </div>
+    </section>
 
-      <div class="project">
-        <div>
-          <div class="acronym">AQUA-EDU</div>
-          <div class="country">Paraguay</div>
-        </div>
-        <div>
-          <h3>Alianza UE–Paraguay por agua pura, alimentos seguros y salud</h3>
-          <p>Consorcio orientado a fortalecer capacidades universitarias en gestión del agua, seguridad alimentaria y salud pública.</p>
-        </div>
-        <div class="tags">
-          <span class="tag">Strand 3</span>
-          <span class="tag status-reserve">Lista de reserva</span>
+    <section class="section projects-section" id="proyectos">
+      <div class="container section-heading">
+        <span class="eyebrow" data-es="Proyectos Erasmus+" data-en="Erasmus+ projects">Proyectos Erasmus+</span>
+        <h2 data-es="Ideas que viajan. Resultados que quedan." data-en="Ideas that travel. Results that stay.">Ideas que viajan. Resultados que quedan.</h2>
+        <p data-es="Explora una selección de líneas de trabajo en desarrollo entre universidades, centros de investigación y comunidades de Europa y América Latina." data-en="Explore a selection of workstreams developed by universities, research centres and communities across Europe and Latin America.">Explora una selección de líneas de trabajo en desarrollo entre universidades, centros de investigación y comunidades de Europa y América Latina.</p>
+      </div>
+      <div class="project-carousel" aria-label="Carrusel automático de proyectos Erasmus+ / Automatic Erasmus+ project carousel">
+        <div class="project-track">
+          <article class="project-card"><div class="project-image"><img src="img/imagen3.jpg" alt="Agricultura sostenible Erasmus+ / Sustainable agriculture Erasmus+"></div><div class="project-body"><div class="project-kicker" data-es="Innovación rural · Europa" data-en="Rural innovation · Europe">Innovación rural · Europa</div><h3 data-es="Aulas vivas para la agricultura sostenible" data-en="Living classrooms for sustainable agriculture">Aulas vivas para la agricultura sostenible</h3><p data-es="Capacitación práctica, tecnología y cooperación para una nueva generación de productores." data-en="Practical training, technology and cooperation for a new generation of producers.">Capacitación práctica, tecnología y cooperación para una nueva generación de productores.</p><span class="project-arrow" data-es="Ver la historia →" data-en="See the story →">Ver la historia →</span></div></article>
+          <article class="project-card"><div class="project-image"><img src="img/image4.jpg" alt="Comunidad educativa / Education community"></div><div class="project-body"><div class="project-kicker" data-es="Energía · Patagonia" data-en="Energy · Patagonia">Energía · Patagonia</div><h3 data-es="Hidrógeno verde para el territorio" data-en="Green hydrogen for the territory">Hidrógeno verde para el territorio</h3><p data-es="Posgrados y transferencia tecnológica para acompañar la transición energética." data-en="Postgraduate learning and technology transfer to support the energy transition.">Posgrados y transferencia tecnológica para acompañar la transición energética.</p><span class="project-arrow" data-es="Descubrir el proyecto →" data-en="Discover the project →">Descubrir el proyecto →</span></div></article>
+          <article class="project-card"><div class="project-image"><img src="img/imagen5.jpg" alt="Agua y salud pública / Water and public health"></div><div class="project-body"><div class="project-kicker" data-es="Agua · Paraguay" data-en="Water · Paraguay">Agua · Paraguay</div><h3 data-es="Agua pura, alimentos seguros y salud" data-en="Clean water, safe food and health">Agua pura, alimentos seguros y salud</h3><p data-es="Una alianza para fortalecer capacidades universitarias y proteger el bienestar de las comunidades." data-en="A partnership strengthening university capacity and protecting community wellbeing.">Una alianza para fortalecer capacidades universitarias y proteger el bienestar de las comunidades.</p><span class="project-arrow" data-es="Conocer la alianza →" data-en="Meet the partnership →">Conocer la alianza →</span></div></article>
+          <article class="project-card"><div class="project-image"><img src="img/imagen6.jpg" alt="Gestión sostenible del agua / Sustainable water management"></div><div class="project-body"><div class="project-kicker" data-es="Investigación · Perú" data-en="Research · Peru">Investigación · Perú</div><h3 data-es="Agua sostenible, conocimiento aplicado" data-en="Sustainable water, applied knowledge">Agua sostenible, conocimiento aplicado</h3><p data-es="Investigación aplicada y formación técnica para instituciones que miran hacia el futuro." data-en="Applied research and technical training for institutions looking to the future.">Investigación aplicada y formación técnica para instituciones que miran hacia el futuro.</p><span class="project-arrow" data-es="Explorar capacidades →" data-en="Explore capabilities →">Explorar capacidades →</span></div></article>
+          <article class="project-card"><div class="project-image"><img src="img/imagen7.jpg" alt="Electromovilidad / Electric mobility"></div><div class="project-body"><div class="project-kicker" data-es="Movilidad · España" data-en="Mobility · Spain">Movilidad · España</div><h3 data-es="Del motor de combustión a la movilidad eléctrica" data-en="From combustion engines to electric mobility">Del motor de combustión a la movilidad eléctrica</h3><p data-es="Talleres piloto y formación técnica para convertir ideas de transición en empleos reales." data-en="Pilot workshops and technical training turning transition ideas into real jobs.">Talleres piloto y formación técnica para convertir ideas de transición en empleos reales.</p><span class="project-arrow" data-es="Ver la red técnica →" data-en="See the technical network →">Ver la red técnica →</span></div></article>
+          <article class="project-card"><div class="project-image"><img src="img/imagen3.jpg" alt="Agricultura sostenible Erasmus+ / Sustainable agriculture Erasmus+"></div><div class="project-body"><div class="project-kicker" data-es="Innovación rural · Europa" data-en="Rural innovation · Europe">Innovación rural · Europa</div><h3 data-es="Aulas vivas para la agricultura sostenible" data-en="Living classrooms for sustainable agriculture">Aulas vivas para la agricultura sostenible</h3><p data-es="Capacitación práctica, tecnología y cooperación para una nueva generación de productores." data-en="Practical training, technology and cooperation for a new generation of producers.">Capacitación práctica, tecnología y cooperación para una nueva generación de productores.</p><span class="project-arrow" data-es="Ver la historia →" data-en="See the story →">Ver la historia →</span></div></article>
+          <article class="project-card"><div class="project-image"><img src="img/image4.jpg" alt="Comunidad educativa / Education community"></div><div class="project-body"><div class="project-kicker" data-es="Energía · Patagonia" data-en="Energy · Patagonia">Energía · Patagonia</div><h3 data-es="Hidrógeno verde para el territorio" data-en="Green hydrogen for the territory">Hidrógeno verde para el territorio</h3><p data-es="Posgrados y transferencia tecnológica para acompañar la transición energética." data-en="Postgraduate learning and technology transfer to support the energy transition.">Posgrados y transferencia tecnológica para acompañar la transición energética.</p><span class="project-arrow" data-es="Descubrir el proyecto →" data-en="Discover the project →">Descubrir el proyecto →</span></div></article>
+          <article class="project-card"><div class="project-image"><img src="img/imagen5.jpg" alt="Agua y salud pública / Water and public health"></div><div class="project-body"><div class="project-kicker" data-es="Agua · Paraguay" data-en="Water · Paraguay">Agua · Paraguay</div><h3 data-es="Agua pura, alimentos seguros y salud" data-en="Clean water, safe food and health">Agua pura, alimentos seguros y salud</h3><p data-es="Una alianza para fortalecer capacidades universitarias y proteger el bienestar de las comunidades." data-en="A partnership strengthening university capacity and protecting community wellbeing.">Una alianza para fortalecer capacidades universitarias y proteger el bienestar de las comunidades.</p><span class="project-arrow" data-es="Conocer la alianza →" data-en="Meet the partnership →">Conocer la alianza →</span></div></article>
+          <article class="project-card"><div class="project-image"><img src="img/imagen6.jpg" alt="Gestión sostenible del agua / Sustainable water management"></div><div class="project-body"><div class="project-kicker" data-es="Investigación · Perú" data-en="Research · Peru">Investigación · Perú</div><h3 data-es="Agua sostenible, conocimiento aplicado" data-en="Sustainable water, applied knowledge">Agua sostenible, conocimiento aplicado</h3><p data-es="Investigación aplicada y formación técnica para instituciones que miran hacia el futuro." data-en="Applied research and technical training for institutions looking to the future.">Investigación aplicada y formación técnica para instituciones que miran hacia el futuro.</p><span class="project-arrow" data-es="Explorar capacidades →" data-en="Explore capabilities →">Explorar capacidades →</span></div></article>
+          <article class="project-card"><div class="project-image"><img src="img/imagen7.jpg" alt="Electromovilidad / Electric mobility"></div><div class="project-body"><div class="project-kicker" data-es="Movilidad · España" data-en="Mobility · Spain">Movilidad · España</div><h3 data-es="Del motor de combustión a la movilidad eléctrica" data-en="From combustion engines to electric mobility">Del motor de combustión a la movilidad eléctrica</h3><p data-es="Talleres piloto y formación técnica para convertir ideas de transición en empleos reales." data-en="Pilot workshops and technical training turning transition ideas into real jobs.">Talleres piloto y formación técnica para convertir ideas de transición en empleos reales.</p><span class="project-arrow" data-es="Ver la red técnica →" data-en="See the technical network →">Ver la red técnica →</span></div></article>
         </div>
       </div>
+      <div class="carousel-note" data-es="Pasa el cursor para pausar · El carrusel avanza solo de izquierda a derecha" data-en="Hover to pause · The carousel moves automatically from left to right">Pasa el cursor para pausar · El carrusel avanza solo de izquierda a derecha</div>
+    </section>
 
-      <div class="project">
-        <div>
-          <div class="acronym">BLUE-EDU PERU</div>
-          <div class="country">Perú</div>
-        </div>
-        <div>
-          <h3>Capacity building en gestión sostenible del agua</h3>
-          <p>Desarrollado junto al CONCYTEC de Perú, con foco en investigación aplicada y formación técnica en instituciones peruanas.</p>
-        </div>
-        <div class="tags">
-          <span class="tag">Strand 3</span>
-          <span class="tag status-dev">En desarrollo</span>
-        </div>
-      </div>
-
-      <div class="project">
-        <div>
-          <div class="acronym">ELECTRO-SUR</div>
-          <div class="country">Argentina · Paraguay</div>
-        </div>
-        <div>
-          <h3>Laboratorios de conversión de vehículos a combustión en eléctricos</h3>
-          <p>Coordinado por la Universidad de Málaga, junto a UTN Mendoza, UTN Morón, Control Vehicular Argentino e INTI. Formación técnica y montaje de talleres piloto de electromovilidad.</p>
-        </div>
-        <div class="tags">
-          <span class="tag">Strand 2 · 3</span>
-          <span class="tag status-dev">En desarrollo</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ============ EQUIPO / TEAM ============ -->
-  <section id="equipo">
-    <div class="wrap">
-      <div class="section-head">
-        <div><div class="eyebrow"><span class="bar"></span><span data-i18n="teamEyebrow">People behind the network</span></div><h2 data-i18n="teamTitle">Our core team</h2></div>
-        <p data-i18n="teamIntro">A cross-border team supporting partners from the first idea to the final report.</p>
-      </div>
-      <div class="team-carousel">
-        <div class="team-track" id="teamTrack">
-          <article class="team-card"><img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=82" alt="International project coordination team"><div class="team-card-body"><h3 data-i18n="teamRole1">Project coordination</h3><p data-i18n="teamDesc1">Consortium design, work packages and delivery.</p></div></article>
-          <article class="team-card"><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=82" alt="Diverse academic collaboration team"><div class="team-card-body"><h3 data-i18n="teamRole2">Partnerships &amp; internationalisation</h3><p data-i18n="teamDesc2">Connecting universities, research and industry.</p></div></article>
-          <article class="team-card"><img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=82" alt="Strategic workshop with education partners"><div class="team-card-body"><h3 data-i18n="teamRole3">Strategy &amp; capacity building</h3><p data-i18n="teamDesc3">Turning priorities into measurable institutional impact.</p></div></article>
-          <article class="team-card"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=82" alt="Team workshop for European cooperation project"><div class="team-card-body"><h3 data-i18n="teamRole4">Digital credentials</h3><p data-i18n="teamDesc4">Making learning outcomes visible and verifiable.</p></div></article>
-        </div>
-        <div class="carousel-controls"><button type="button" id="teamPrev" aria-label="Previous team card">‹</button><button type="button" id="teamNext" aria-label="Next team card">›</button></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CONTACTO ============ -->
-  <section id="contacto">
-    <div class="wrap contact-grid">
-      <div class="contact-info">
-        <div class="eyebrow"><span class="bar"></span data-i18n="contactEyebrow">Let’s talk</div>
-        <h2 data-i18n="contactTitle">Join your institution</h2>
-        <p>Si tu universidad, instituto técnico o centro de investigación quiere formar parte de un consorcio Erasmus+, escribinos y coordinamos una primera reunión.</p>
-        <dl>
-          <dt data-i18n="emailLabel">Email</dt>
-          <dd><a href="mailto:info@edunexusspain.eu">info@edunexusspain.eu</a></dd>
-          <dt data-i18n="locationLabel">Location</dt>
-          <dd>Málaga, España</dd>
-          <dt data-i18n="whatsappLabel">WhatsApp</dt>
-          <dd><a href="https://wa.me/34667537320" target="_blank" rel="noopener">+34 667 537 320</a></dd>
-        </dl>
-        <div class="identity-panel">
-          <h3 data-i18n="erasmusIdentity">Erasmus+ organisation identity</h3>
-          <div class="identity-grid"><div><span>Organisation ID</span><span>E10414813</span></div><div><span>Legal Name</span><span>Edu Nexus Consulting Spain</span></div></div>
-        </div>
-      </div>
-
-      <form id="contactForm" action="https://formsubmit.co/el/bozixa" method="POST">
-        <input type="hidden" name="_subject" value="Nuevo mensaje de contacto - Edu Nexus Spain">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-
-        <div class="field-row">
+    <section class="section network-section" id="red">
+      <div class="container">
+        <div class="network-banner">
           <div>
-            <label for="nombre" data-i18n="nameLabel">Name</label>
-            <input id="nombre" name="nombre" type="text" placeholder="Your name" autocomplete="name" required>
+            <span class="eyebrow" data-es="La red en movimiento" data-en="The network in motion">La red en movimiento</span>
+            <h2 data-es="El mejor proyecto empieza con una buena conexión." data-en="The best project starts with a meaningful connection.">El mejor proyecto empieza con una buena conexión.</h2>
+            <p data-es="Encontramos el punto de encuentro entre una necesidad local y una oportunidad internacional. Así las alianzas se vuelven aprendizaje, innovación y futuro compartido." data-en="We find the meeting point between a local need and an international opportunity. That is how partnerships become learning, innovation and a shared future.">Encontramos el punto de encuentro entre una necesidad local y una oportunidad internacional. Así las alianzas se vuelven aprendizaje, innovación y futuro compartido.</p>
           </div>
-          <div>
-            <label for="email" data-i18n="emailLabel">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+          <div class="country-cloud" aria-label="Países y regiones / Countries and regions">
+            <span class="country-pill" data-es="España" data-en="Spain">España</span><span class="country-pill" data-es="Argentina" data-en="Argentina">Argentina</span><span class="country-pill" data-es="Paraguay" data-en="Paraguay">Paraguay</span><span class="country-pill" data-es="Perú" data-en="Peru">Perú</span><span class="country-pill" data-es="Europa" data-en="Europe">Europa</span><span class="country-pill" data-es="América Latina" data-en="Latin America">América Latina</span><span class="country-pill" data-es="Más por conectar" data-en="More to connect">Más por conectar</span>
           </div>
         </div>
+      </div>
+    </section>
 
+    <section class="section contact-section" id="contacto">
+      <div class="container contact-grid">
         <div>
-          <label for="organizacion" data-i18n="institutionLabel">Institution</label>
-          <input id="organizacion" name="organizacion" type="text" placeholder="University, centre, company…" autocomplete="organization">
+          <span class="eyebrow" data-es="Hablemos" data-en="Let's talk">Hablemos</span>
+          <h2 data-es="Tu institución puede ser el próximo punto de la red." data-en="Your institution can be the next point in the network.">Tu institución puede ser el próximo punto de la red.</h2>
+          <p class="contact-lede" data-es="Cuéntanos qué quieres transformar y encontraremos juntos el camino europeo para hacerlo posible." data-en="Tell us what you want to transform and we will find the European path to make it possible.">Cuéntanos qué quieres transformar y encontraremos juntos el camino europeo para hacerlo posible.</p>
+          <dl class="contact-list">
+            <div class="contact-item"><dt data-es="Email" data-en="Email">Email</dt><dd><a href="mailto:info@edunexusspain.eu">info@edunexusspain.eu</a></dd></div>
+            <div class="contact-item"><dt data-es="Ubicación" data-en="Location">Ubicación</dt><dd data-es="Málaga, España" data-en="Málaga, Spain">Málaga, España</dd></div>
+            <div class="contact-item"><dt data-es="WhatsApp" data-en="WhatsApp">WhatsApp</dt><dd><a href="https://wa.me/34667537320" target="_blank" rel="noopener">+34 667 537 320</a></dd></div>
+          </dl>
+          <div class="identity-panel">
+            <h3 data-es="Identidad de organización Erasmus+" data-en="Erasmus+ organisation identity">Identidad de organización Erasmus+</h3>
+            <div class="identity-row"><span data-es="ID de organización" data-en="Organisation ID">ID de organización</span><strong>E10414813</strong></div>
+            <div class="identity-row"><span data-es="Nombre legal" data-en="Legal name">Nombre legal</span><strong>Edu Nexus Consulting Spain</strong></div>
+          </div>
         </div>
+        <form class="contact-form" id="contactForm" action="https://formsubmit.co/el/bozixa" method="POST">
+          <input type="hidden" name="_subject" value="Nuevo mensaje de contacto - Edu Nexus Spain">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <div class="field-row">
+            <div class="field"><label for="nombre" data-es="Nombre" data-en="Name">Nombre</label><input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre / Your name" required></div>
+            <div class="field"><label for="email" data-es="Email" data-en="Email">Email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="tu@email.com / you@email.com" required></div>
+          </div>
+          <div class="field"><label for="organizacion" data-es="Institución" data-en="Institution">Institución</label><input id="organizacion" name="organizacion" type="text" autocomplete="organization" placeholder="Universidad, centro, empresa… / University, centre, company…"></div>
+          <div class="field"><label for="mensaje" data-es="Mensaje" data-en="Message">Mensaje</label><textarea id="mensaje" name="mensaje" placeholder="Cuéntanos brevemente tu idea… / Tell us briefly about your idea…" required></textarea></div>
+          <div class="form-footer"><button class="button button-primary" type="submit"><span data-es="Enviar mensaje" data-en="Send message">Enviar mensaje</span><span aria-hidden="true">↗</span></button><p class="form-status" id="formStatus" role="status" aria-live="polite"></p></div>
+        </form>
+      </div>
+    </section>
+  </main>
 
-        <div>
-          <label for="mensaje" data-i18n="messageLabel">Message</label>
-          <textarea id="mensaje" name="mensaje" placeholder="Tell us briefly about your interest or project idea…" data-ph-es="Contanos brevemente tu interés o el proyecto que tenés en mente…" required></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-solid" data-i18n="sendMessage">Send message</button>
-        <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
-      </form>
-      <div class="contact-actions"><div class="qr-card"><img src="whatsapp-qr.png" alt="QR code to contact Edu Nexus Spain on WhatsApp"><div><strong>WhatsApp</strong><small data-i18n="scanQr">Scan to start a conversation</small><a class="whatsapp-link" href="https://wa.me/34667537320" target="_blank" rel="noopener">+34 667 537 320</a></div></div></div>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-copy"><span data-es="© 2026 Edu Nexus Spain · Cooperación educativa sin fronteras." data-en="© 2026 Edu Nexus Spain · Borderless educational cooperation.">© 2026 Edu Nexus Spain · Cooperación educativa sin fronteras.</span></div>
+      <div class="footer-branding"><img src="img/Europa.png" alt="Financiado por la Unión Europea / Co-funded by the European Union"><span class="footer-eu-note" data-es="Las opiniones expresadas pertenecen a sus autores y no reflejan necesariamente las de la Unión Europea." data-en="The views expressed are those of the authors and do not necessarily reflect those of the European Union.">Las opiniones expresadas pertenecen a sus autores y no reflejan necesariamente las de la Unión Europea.</span><a class="back-top" href="#inicio" data-es="Volver arriba ↑" data-en="Back to top ↑">Volver arriba ↑</a></div>
     </div>
-  </section>
+  </footer>
 
-</main>
-
-<footer>
-  <div class="wrap">
-    <span>© 2026 Edu Nexus Spain — Asociación sin fines de lucro</span>
-    <span><a href="#inicio">Volver arriba</a></span>
+  <div class="social-dock" aria-label="Contacto rápido / Quick contact">
+    <a class="social-link" href="#contacto" data-tooltip-es="WeChat · ver contacto" data-tooltip-en="WeChat · view contact" data-tooltip="WeChat · ver contacto" aria-label="WeChat / WeChat">
+      <img src="img/wechat-icon.svg" alt="WeChat">
+      <span class="sr-only">WeChat</span>
+    </a>
+    <a class="social-link" href="https://wa.me/34667537320" target="_blank" rel="noopener" data-tooltip-es="WhatsApp · +34 667 537 320" data-tooltip-en="WhatsApp · +34 667 537 320" data-tooltip="WhatsApp · +34 667 537 320" aria-label="WhatsApp / WhatsApp">
+      <img src="img/whatsapp-icon.svg" alt="WhatsApp">
+      <span class="sr-only">WhatsApp</span>
+    </a>
   </div>
-</footer>
 
-<script>
-  // ---------- Nav toggle ----------
-  const toggle = document.getElementById('navToggle');
-  const links = document.getElementById('navLinks');
-  toggle.addEventListener('click', () => {
-    const open = links.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', open);
-  });
-  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    links.classList.remove('open');
-    toggle.setAttribute('aria-expanded', 'false');
-  }));
+  <script>
+    const root = document.documentElement;
+    const langButtons = document.querySelectorAll('[data-lang-button]');
+    const translatable = document.querySelectorAll('[data-es][data-en]');
+    const navLinks = document.getElementById('navLinks');
+    const menuToggle = document.getElementById('menuToggle');
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // ---------- Ambient site-wide network ----------
-  (function ambientNetwork(){
-    const canvas = document.getElementById('bgCanvas');
-    const ctx = canvas.getContext('2d');
-    let w, h, particles = [];
-
-    function resize(){
-      w = canvas.width = window.innerWidth;
-      h = canvas.height = window.innerHeight;
-      const count = Math.max(28, Math.min(70, Math.floor((w*h)/26000)));
-      particles = Array.from({length: count}, () => ({
-        x: Math.random()*w, y: Math.random()*h,
-        vx: (Math.random()-0.5)*0.18, vy: (Math.random()-0.5)*0.18,
-        r: Math.random()*1.4 + 0.6,
-        hue: Math.random() > 0.72 ? 'v' : 't'
-      }));
-    }
-    window.addEventListener('resize', resize);
-    resize();
-
-    function draw(){
-      ctx.clearRect(0,0,w,h);
-      for(const p of particles){
-        p.x += p.vx; p.y += p.vy;
-        if(p.x < -20) p.x = w+20; if(p.x > w+20) p.x = -20;
-        if(p.y < -20) p.y = h+20; if(p.y > h+20) p.y = -20;
-      }
-      for(let i=0;i<particles.length;i++){
-        for(let j=i+1;j<particles.length;j++){
-          const a = particles[i], b = particles[j];
-          const dx = a.x-b.x, dy = a.y-b.y;
-          const d = Math.sqrt(dx*dx+dy*dy);
-          if(d < 150){
-            ctx.strokeStyle = `rgba(69,232,200,${(1-d/150)*0.10})`;
-            ctx.lineWidth = 1;
-            ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
-          }
-        }
-      }
-      for(const p of particles){
-        ctx.beginPath();
-        ctx.fillStyle = p.hue === 'v' ? 'rgba(124,147,255,0.55)' : 'rgba(69,232,200,0.55)';
-        ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
-      }
-      if(!reduceMotion) requestAnimationFrame(draw);
-    }
-    draw();
-  })();
-
-  // ---------- Hero labeled hub network ----------
-  (function heroNetwork(){
-    const canvas = document.getElementById('heroCanvas');
-    const ctx = canvas.getContext('2d');
-    const section = document.getElementById('inicio');
-    const labelWrap = document.getElementById('hubLabels');
-    let w, h;
-
-    const hubs = [
-      // Europa
-      { id:'ie', x:0.54, y:0.04, name:'Irlanda', sub:'ATU', side:'right' },
-      { id:'es', x:0.64, y:0.16, name:'España', sub:'CNH2 · UCLM · UMA', side:'right' },
-      { id:'fr', x:0.72, y:0.28, name:'Francia', sub:'', side:'right' },
-      { id:'de', x:0.80, y:0.40, name:'Alemania', sub:'', side:'right' },
-      { id:'cz', x:0.88, y:0.52, name:'Rep. Checa', sub:'', side:'right' },
-      { id:'it', x:0.94, y:0.64, name:'Italia', sub:"La Sapienza · L'Aquila", side:'right' },
-      { id:'tr', x:0.98, y:0.78, name:'Turquía', sub:'Selçuk', side:'right' },
-      // América Latina
-      { id:'gt', x:0.10, y:0.06, name:'Guatemala', sub:'', side:'left' },
-      { id:'cr', x:0.20, y:0.16, name:'Costa Rica', sub:'', side:'left' },
-      { id:'pa', x:0.10, y:0.26, name:'Panamá', sub:'', side:'left' },
-      { id:'ec', x:0.22, y:0.36, name:'Ecuador', sub:'', side:'left' },
-      { id:'pe', x:0.10, y:0.46, name:'Perú', sub:'BLUE-EDU', side:'left' },
-      { id:'br', x:0.26, y:0.56, name:'Brasil', sub:'', side:'left' },
-      { id:'py', x:0.14, y:0.66, name:'Paraguay', sub:'AQUA-EDU · ELECTRO-SUR', side:'left' },
-      { id:'ar', x:0.22, y:0.78, name:'Argentina', sub:'UTN · CVA · INTI', side:'left' },
-      { id:'uy', x:0.12, y:0.90, name:'Uruguay', sub:'', side:'left' },
-    ];
-    const links = [
-      ['ar','es'], ['ar','it'], ['py','es'], ['pe','es'], ['es','tr'], ['ie','es'], ['ar','ie'],
-      ['gt','es'], ['cr','es'], ['pa','es'], ['ec','es'], ['br','es'], ['uy','es'],
-      ['fr','es'], ['de','es'], ['cz','es'],
-    ];
-
-    function buildLabels(){
-      labelWrap.innerHTML = '';
-      hubs.forEach(hub => {
-        const el = document.createElement('div');
-        el.className = 'hub-label ' + hub.side;
-        el.style.left = (hub.x*100) + '%';
-        el.style.top = (hub.y*100) + '%';
-        el.innerHTML = `<div class="name">${hub.name}</div><div class="sub">${hub.sub}</div>`;
-        labelWrap.appendChild(el);
+    function setLanguage(lang) {
+      root.lang = lang;
+      root.dataset.lang = lang;
+      translatable.forEach((element) => {
+        const value = element.dataset[lang];
+        if (value !== undefined) element.textContent = value;
       });
-    }
-
-    function resize(){
-      const rect = section.getBoundingClientRect();
-      w = canvas.width = rect.width;
-      h = canvas.height = rect.height;
-    }
-    window.addEventListener('resize', resize);
-    resize(); buildLabels();
-
-    function pt(hub){ return { x: hub.x*w, y: hub.y*h }; }
-
-    let t = 0;
-    function draw(){
-      t += 0.01;
-      ctx.clearRect(0,0,w,h);
-
-      // curved connections
-      links.forEach(([aId,bId], idx) => {
-        const a = pt(hubs.find(hh=>hh.id===aId));
-        const b = pt(hubs.find(hh=>hh.id===bId));
-        const mx = (a.x+b.x)/2, my = (a.y+b.y)/2 - 40;
-        ctx.strokeStyle = 'rgba(69,232,200,0.22)';
-        ctx.lineWidth = 1.1;
-        ctx.setLineDash([2,5]);
-        ctx.beginPath();
-        ctx.moveTo(a.x,a.y);
-        ctx.quadraticCurveTo(mx,my,b.x,b.y);
-        ctx.stroke();
-        ctx.setLineDash([]);
-
-        // traveling packet
-        const speed = 0.15;
-        const tt = (t*speed + idx*0.37) % 1;
-        const px = (1-tt)*(1-tt)*a.x + 2*(1-tt)*tt*mx + tt*tt*b.x;
-        const py = (1-tt)*(1-tt)*a.y + 2*(1-tt)*tt*my + tt*tt*b.y;
-        const grad = ctx.createRadialGradient(px,py,0,px,py,6);
-        grad.addColorStop(0,'rgba(240,180,41,0.95)');
-        grad.addColorStop(1,'rgba(240,180,41,0)');
-        ctx.fillStyle = grad;
-        ctx.beginPath(); ctx.arc(px,py,6,0,Math.PI*2); ctx.fill();
+      document.querySelectorAll('[data-tooltip-es][data-tooltip-en]').forEach((element) => {
+        element.dataset.tooltip = lang === 'en' ? element.dataset.tooltipEn : element.dataset.tooltipEs;
       });
-
-      // hub glow points
-      hubs.forEach((hub, i) => {
-        const p = pt(hub);
-        const pulse = 0.55 + 0.45*Math.sin(t*1.6 + i*1.3);
-        const grad = ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,16);
-        grad.addColorStop(0, `rgba(69,232,200,${0.55*pulse})`);
-        grad.addColorStop(1, 'rgba(69,232,200,0)');
-        ctx.fillStyle = grad;
-        ctx.beginPath(); ctx.arc(p.x,p.y,16,0,Math.PI*2); ctx.fill();
-
-        ctx.fillStyle = 'rgba(234,243,240,0.95)';
-        ctx.beginPath(); ctx.arc(p.x,p.y,3,0,Math.PI*2); ctx.fill();
+      langButtons.forEach((button) => {
+        const active = button.dataset.langButton === lang;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-pressed', String(active));
       });
-
-      if(!reduceMotion) requestAnimationFrame(draw);
+      document.title = lang === 'es'
+        ? 'Edu Nexus Spain | Redes educativas que conectan Europa y América Latina'
+        : 'Edu Nexus Spain | Educational networks connecting Europe and Latin America';
+      localStorage.setItem('edunexus-language', lang);
     }
-    draw();
-  })();
 
-  // ---------- Language selector ----------
-  const translations = {
-    en:{navHome:'Home',navAbout:'About us',navProjects:'Projects',navContact:'Contact',aboutTitle:'About us',projectsTitle:'Current projects',contactEyebrow:'Let’s talk',contactTitle:'Join your institution',emailLabel:'Email',nameLabel:'Name',institutionLabel:'Institution',countryLabel:'Country',messageLabel:'Message',sendMessage:'Send message',locationLabel:'Location',whatsappLabel:'WhatsApp',erasmusIdentity:'Erasmus+ organisation identity',teamEyebrow:'People behind the network',teamTitle:'Our core team',teamIntro:'A cross-border team supporting partners from the first idea to the final report.',teamRole1:'Project coordination',teamDesc1:'Consortium design, work packages and delivery.',teamRole2:'Partnerships & internationalisation',teamDesc2:'Connecting universities, research and industry.',teamRole3:'Strategy & capacity building',teamDesc3:'Turning priorities into measurable institutional impact.',teamRole4:'Digital credentials',teamDesc4:'Making learning outcomes visible and verifiable.',scanQr:'Scan to start a conversation'},
-    es:{navHome:'Inicio',navAbout:'Quiénes somos',navProjects:'Proyectos',navContact:'Contacto',aboutTitle:'Quiénes somos',projectsTitle:'Proyectos en curso',contactEyebrow:'Hablemos',contactTitle:'Sumá a tu institución',emailLabel:'Correo',nameLabel:'Nombre',institutionLabel:'Institución',countryLabel:'País',messageLabel:'Mensaje',sendMessage:'Enviar mensaje',locationLabel:'Sede',whatsappLabel:'WhatsApp',erasmusIdentity:'Identidad de la organización Erasmus+',teamEyebrow:'Personas detrás de la red',teamTitle:'Nuestro equipo principal',teamIntro:'Un equipo internacional que acompaña a cada socio desde la idea hasta el informe final.',teamRole1:'Coordinación de proyectos',teamDesc1:'Diseño de consorcios, paquetes de trabajo y ejecución.',teamRole2:'Alianzas e internacionalización',teamDesc2:'Conectamos universidades, investigación e industria.',teamRole3:'Estrategia y fortalecimiento',teamDesc3:'Convertimos prioridades en impacto institucional medible.',teamRole4:'Credenciales digitales',teamDesc4:'Hacemos visibles y verificables los resultados de aprendizaje.',scanQr:'Escaneá para iniciar una conversación'}
-  };
-  function setLanguage(lang){
-    document.documentElement.lang=lang;
-    document.querySelectorAll('[data-i18n]').forEach(el=>{ const key=el.dataset.i18n; if(translations[lang][key]) el.textContent=translations[lang][key]; });
-    document.querySelectorAll('[data-ph-es]').forEach(el=>{ el.placeholder=lang==='es'?el.dataset.phEs:el.getAttribute('data-ph-en')||el.placeholder; });
-    document.querySelectorAll('[data-lang]').forEach(btn=>btn.classList.toggle('active',btn.dataset.lang===lang));
-    localStorage.setItem('edunexus-language',lang);
-  }
-  document.querySelectorAll('[data-lang]').forEach(btn=>btn.addEventListener('click',()=>setLanguage(btn.dataset.lang)));
-  setLanguage(localStorage.getItem('edunexus-language') || 'en');
+    langButtons.forEach((button) => button.addEventListener('click', () => setLanguage(button.dataset.langButton)));
+    const savedLanguage = localStorage.getItem('edunexus-language');
+    if (savedLanguage === 'en' || savedLanguage === 'es') setLanguage(savedLanguage);
 
-  // ---------- Team carousel ----------
-  const teamTrack=document.getElementById('teamTrack');
-  document.getElementById('teamPrev').addEventListener('click',()=>teamTrack.scrollBy({left:-teamTrack.clientWidth*.8,behavior:'smooth'}));
-  document.getElementById('teamNext').addEventListener('click',()=>teamTrack.scrollBy({left:teamTrack.clientWidth*.8,behavior:'smooth'}));
+    menuToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+    });
+    navLinks.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }));
 
-  // ---------- Contact form feedback ----------
-  document.getElementById('contactForm').addEventListener('submit',()=>{
-    const status=document.getElementById('formStatus');
-    status.className='form-status success';
-    status.textContent=document.documentElement.lang==='es'?'Enviando tu mensaje…':'Sending your message…';
-  });
+    document.querySelectorAll('.sparkle-zone').forEach((zone) => {
+      let lastSpark = 0;
+      zone.addEventListener('pointermove', (event) => {
+        if (reduceMotion || event.pointerType === 'touch') return;
+        const now = performance.now();
+        if (now - lastSpark < 45) return;
+        lastSpark = now;
+        const spark = document.createElement('span');
+        spark.className = 'sparkle';
+        spark.style.left = `${event.clientX - 3}px`;
+        spark.style.top = `${event.clientY - 3}px`;
+        spark.style.setProperty('--dx', `${(Math.random() - .5) * 28}px`);
+        spark.style.setProperty('--dy', `${-14 - Math.random() * 26}px`);
+        spark.style.animationDelay = `${Math.random() * .06}s`;
+        document.body.appendChild(spark);
+        window.setTimeout(() => spark.remove(), 760);
+      });
+    });
 
-  // Reuse the embedded brand logo for the watermark, keeping the page self-contained.
-  const logo=document.querySelector('.logo-img');
-  const watermark=document.querySelector('.brand-watermark');
-  if(logo && watermark){ watermark.style.backgroundImage=`url(${logo.src})`; watermark.style.backgroundSize='contain'; watermark.style.backgroundPosition='center'; watermark.style.backgroundRepeat='no-repeat'; }
-
-
-  // ---------- Complete bilingual content ----------
-  const fullText = {
-    en: {
-      'title':'Edu Nexus Spain — European educational cooperation network',
-      'meta':'Edu Nexus Spain designs and coordinates Erasmus+ consortia between universities in Europe and Latin America, focusing on green hydrogen, water, health and electromobility.',
-      '.hero-copy .eyebrow':'NGO · EU – Latin America educational cooperation',
-      '.hero-copy h1':'A network connecting universities in real time',
-      '.hero-copy .lede':'Edu Nexus Spain designs, builds and coordinates Erasmus+ consortia between institutions in Europe and Latin America — from proposal to delivery on the ground.',
-      '.hero-ctas .btn-solid':'View active projects', '.hero-ctas .btn-outline':'Join your institution',
-      '#quienes-somos .about-copy > p:nth-of-type(1)':'Edu Nexus Spain is a non-profit organisation based in Málaga. We work with universities, technical institutes and research centres to access European educational cooperation funds.',
-      '#quienes-somos .about-copy > p:nth-of-type(2)':'Our focus is Erasmus+ Capacity Building in Higher Education (CBHE), connecting Latin American institutions with European partners in fields where knowledge transfer has a direct impact: renewable energy and green hydrogen, water and health, and electromobility.',
-      '#quienes-somos .about-copy > p:nth-of-type(3)':'We accompany every consortium from start to finish: partner identification, technical and budget proposal writing, implementation coordination, and digital certification of results through verifiable blockchain credentials.',
-      '#quienes-somos .capability:nth-child(1) h3':'Proposal design', '#quienes-somos .capability:nth-child(1) p':'Technical and budget writing for Erasmus+ CBHE projects aligned with the European Union strategic priorities.',
-      '#quienes-somos .capability:nth-child(2) h3':'Consortium building', '#quienes-somos .capability:nth-child(2) p':'Identifying and onboarding universities, research centres and industry partners in Europe and Latin America.',
-      '#quienes-somos .capability:nth-child(3) h3':'Management and reporting', '#quienes-somos .capability:nth-child(3) p':'Coordination of work packages, transnational meetings and implementation reports for the European Commission.',
-      '#quienes-somos .capability:nth-child(4) h3':'Digital credentials', '#quienes-somos .capability:nth-child(4) p':'Certifying learning outcomes through verifiable micro-credentials, in partnership with POK.',
-      '#proyectos .section-head .eyebrow':'Active consortia', '#proyectos .section-head h2':'Current projects', '#proyectos .section-head p':'Erasmus+ consortia currently in development or submitted.',
-      '#proyectos .project:nth-of-type(1) .country':'Argentina', '#proyectos .project:nth-of-type(1) h3':'Capacity building in green hydrogen and renewable energy', '#proyectos .project:nth-of-type(1) p':'Postgraduate training and technology transfer with Argentine technical universities and Spain’s National Hydrogen Centre, supporting the energy transition in Patagonia.', '#proyectos .project:nth-of-type(1) .tag.status-dev':'In development',
-      '#proyectos .project:nth-of-type(2) .country':'Paraguay', '#proyectos .project:nth-of-type(2) h3':'EU–Paraguay alliance for clean water, safe food and health', '#proyectos .project:nth-of-type(2) p':'A consortium strengthening university capacity in water management, food safety and public health.', '#proyectos .project:nth-of-type(2) .tag.status-reserve':'Reserve list',
-      '#proyectos .project:nth-of-type(3) .country':'Peru', '#proyectos .project:nth-of-type(3) h3':'Capacity building in sustainable water management', '#proyectos .project:nth-of-type(3) p':'Developed with Peru’s CONCYTEC, focusing on applied research and technical training in Peruvian institutions.', '#proyectos .project:nth-of-type(4) .country':'Argentina · Paraguay', '#proyectos .project:nth-of-type(4) h3':'Laboratories for converting combustion vehicles to electric', '#proyectos .project:nth-of-type(4) p':'Coordinated by the University of Málaga with UTN Mendoza, UTN Morón, Control Vehicular Argentino and INTI. Technical training and pilot electromobility workshops.',
-      '#contacto .contact-info > p':'If your university, technical institute or research centre wants to join an Erasmus+ consortium, write to us and we will arrange an initial meeting.', '#contacto .identity-grid div:nth-child(1) span:first-child':'Organisation ID', '#contacto .identity-grid div:nth-child(2) span:first-child':'Legal name', '#contacto form label[for="nombre"]':'Name', '#contacto form label[for="organizacion"]':'Institution', '#contacto form label[for="pais"]':'Country', '#contacto form label[for="email"]':'Email', '#contacto form label[for="mensaje"]':'Message', '#contacto .contact-actions strong':'WhatsApp',
-      'footer .wrap span:first-child':'© 2026 Edu Nexus Spain — Non-profit organisation', 'footer .wrap span:last-child a':'Back to top'
-    },
-    es: {
-      'title':'Edu Nexus Spain — Red europea de cooperación educativa',
-      'meta':'Edu Nexus Spain diseña y coordina consorcios Erasmus+ entre universidades de Europa y América Latina, con foco en hidrógeno verde, agua, salud y electromovilidad.',
-      '.hero-copy .eyebrow':'ONG · Cooperación educativa UE – América Latina', '.hero-copy h1':'Una red que conecta universidades en tiempo real', '.hero-copy .lede':'Edu Nexus Spain diseña, construye y coordina consorcios Erasmus+ entre instituciones de Europa y América Latina — desde la propuesta hasta la ejecución en el terreno.', '.hero-ctas .btn-solid':'Ver proyectos activos', '.hero-ctas .btn-outline':'Sumar tu institución',
-      '#quienes-somos .about-copy > p:nth-of-type(1)':'Edu Nexus Spain es una organización sin fines de lucro con sede en Málaga. Trabajamos con universidades, institutos técnicos y centros de investigación para acceder a fondos europeos de cooperación educativa.', '#quienes-somos .about-copy > p:nth-of-type(2)':'Nuestro foco está en programas Erasmus+ de Capacity Building en Educación Superior (CBHE) que conectan a instituciones latinoamericanas con socios europeos, en sectores donde la transferencia de conocimiento tiene impacto directo: energías renovables e hidrógeno verde, agua y salud, y electromovilidad.', '#quienes-somos .about-copy > p:nth-of-type(3)':'Acompañamos cada consorcio de principio a fin: identificación de socios, redacción de la propuesta técnica y presupuestaria, coordinación durante la ejecución y certificación digital de resultados mediante credenciales verificables en blockchain.',
-      '#quienes-somos .capability:nth-child(1) h3':'Diseño de propuestas', '#quienes-somos .capability:nth-child(1) p':'Redacción técnica y presupuestaria de proyectos Erasmus+ CBHE, alineados a las prioridades estratégicas de la Unión Europea.', '#quienes-somos .capability:nth-child(2) h3':'Construcción de consorcios', '#quienes-somos .capability:nth-child(2) p':'Identificación e incorporación de universidades, centros de investigación e industria en Europa y América Latina.', '#quienes-somos .capability:nth-child(3) h3':'Gestión y reporting', '#quienes-somos .capability:nth-child(3) p':'Coordinación de work packages, reuniones transnacionales y reportes de ejecución ante la Comisión Europea.', '#quienes-somos .capability:nth-child(4) h3':'Credenciales digitales', '#quienes-somos .capability:nth-child(4) p':'Certificación de resultados de aprendizaje mediante micro-credenciales verificables, en alianza con POK.',
-      '#proyectos .section-head .eyebrow':'Consorcios activos', '#proyectos .section-head h2':'Proyectos en curso', '#proyectos .section-head p':'Consorcios Erasmus+ actualmente en desarrollo o presentados.', '#proyectos .project:nth-of-type(1) .country':'Argentina', '#proyectos .project:nth-of-type(1) h3':'Capacity building en hidrógeno verde y energías renovables', '#proyectos .project:nth-of-type(1) p':'Formación de posgrado y transferencia tecnológica junto a universidades técnicas argentinas y el Centro Nacional del Hidrógeno de España, para acompañar la transición energética en Patagonia.', '#proyectos .project:nth-of-type(1) .tag.status-dev':'En desarrollo', '#proyectos .project:nth-of-type(2) .country':'Paraguay', '#proyectos .project:nth-of-type(2) h3':'Alianza UE–Paraguay por agua pura, alimentos seguros y salud', '#proyectos .project:nth-of-type(2) p':'Consorcio orientado a fortalecer capacidades universitarias en gestión del agua, seguridad alimentaria y salud pública.', '#proyectos .project:nth-of-type(2) .tag.status-reserve':'Lista de reserva', '#proyectos .project:nth-of-type(3) .country':'Perú', '#proyectos .project:nth-of-type(3) h3':'Capacity building en gestión sostenible del agua', '#proyectos .project:nth-of-type(3) p':'Desarrollado junto al CONCYTEC de Perú, con foco en investigación aplicada y formación técnica en instituciones peruanas.', '#proyectos .project:nth-of-type(4) .country':'Argentina · Paraguay', '#proyectos .project:nth-of-type(4) h3':'Laboratorios de conversión de vehículos a combustión en eléctricos', '#proyectos .project:nth-of-type(4) p':'Coordinado por la Universidad de Málaga, junto a UTN Mendoza, UTN Morón, Control Vehicular Argentino e INTI. Formación técnica y montaje de talleres piloto de electromovilidad.',
-      '#contacto .contact-info > p':'Si tu universidad, instituto técnico o centro de investigación quiere formar parte de un consorcio Erasmus+, escribinos y coordinamos una primera reunión.', '#contacto .identity-grid div:nth-child(1) span:first-child':'Organisation ID', '#contacto .identity-grid div:nth-child(2) span:first-child':'Legal Name', '#contacto form label[for="nombre"]':'Nombre', '#contacto form label[for="organizacion"]':'Institución', '#contacto form label[for="pais"]':'País', '#contacto form label[for="email"]':'Correo', '#contacto form label[for="mensaje"]':'Mensaje', '#contacto .contact-actions strong':'WhatsApp', 'footer .wrap span:first-child':'© 2026 Edu Nexus Spain — Asociación sin fines de lucro', 'footer .wrap span:last-child a':'Volver arriba'
+    if (!reduceMotion) {
+      const track = document.querySelector('.project-track');
+      const carousel = document.querySelector('.project-carousel');
+      let direction = 1;
+      window.setInterval(() => {
+        if (carousel.matches(':hover')) return;
+        track.style.animationPlayState = 'running';
+      }, 1500);
+      carousel.addEventListener('focusin', () => { track.style.animationPlayState = 'paused'; });
+      carousel.addEventListener('focusout', () => { track.style.animationPlayState = 'running'; });
     }
-  };
-  function applyCompleteLanguage(lang){
-    const dict=fullText[lang];
-    Object.entries(dict).forEach(([selector,value])=>{ const nodes=document.querySelectorAll(selector); nodes.forEach(node=>{ if(selector==='title') document.title=value; else if(selector==='meta') document.querySelector('meta[name="description"]').setAttribute('content',value); else if(node.classList.contains('eyebrow')){ const bar=node.querySelector('.bar'); node.textContent=''; if(bar) node.appendChild(bar); node.append(' '+value); } else node.textContent=value; }); });
-  }
-  const oldSetLanguage=setLanguage;
-  setLanguage=function(lang){ oldSetLanguage(lang); applyCompleteLanguage(lang); };
-  setLanguage(localStorage.getItem('edunexus-language') || 'en');
 
-  // ---------- Continuous carousel motion ----------
-  let carouselSpeed=0.22, carouselHover=false, carouselPaused=false;
-  function moveTeamCarousel(){
-    if(!reduceMotion && !carouselPaused){
-      const max=teamTrack.scrollWidth-teamTrack.clientWidth;
-      if(teamTrack.scrollLeft >= max-1) teamTrack.scrollLeft=0;
-      teamTrack.scrollLeft += carouselHover ? carouselSpeed*3.8 : carouselSpeed;
-    }
-    requestAnimationFrame(moveTeamCarousel);
-  }
-  teamTrack.addEventListener('mouseenter',()=>carouselHover=true);
-  teamTrack.addEventListener('mouseleave',()=>carouselHover=false);
-  teamTrack.addEventListener('focusin',()=>carouselPaused=true);
-  teamTrack.addEventListener('focusout',()=>carouselPaused=false);
-  teamTrack.addEventListener('touchstart',()=>carouselPaused=true,{passive:true});
-  teamTrack.addEventListener('touchend',()=>setTimeout(()=>carouselPaused=false,1800),{passive:true});
-  if(!reduceMotion) requestAnimationFrame(moveTeamCarousel);
-
-
-  // ---------- Final translation coverage: forms, projects and network labels ----------
-  const projectCopy={
-    en:[['Argentina','Capacity building in green hydrogen and renewable energy','Postgraduate training and technology transfer with Argentine technical universities and Spain’s National Hydrogen Centre, supporting the energy transition in Patagonia.','In development'],['Paraguay','EU–Paraguay alliance for clean water, safe food and health','A consortium strengthening university capacity in water management, food safety and public health.','Reserve list'],['Peru','Capacity building in sustainable water management','Developed with Peru’s CONCYTEC, focusing on applied research and technical training in Peruvian institutions.','In development'],['Argentina · Paraguay','Laboratories for converting combustion vehicles to electric','Coordinated by the University of Málaga with UTN Mendoza, UTN Morón, Control Vehicular Argentino and INTI. Technical training and pilot electromobility workshops.','In development']],
-    es:[['Argentina','Capacity building en hidrógeno verde y energías renovables','Formación de posgrado y transferencia tecnológica junto a universidades técnicas argentinas y el Centro Nacional del Hidrógeno de España, para acompañar la transición energética en Patagonia.','En desarrollo'],['Paraguay','Alianza UE–Paraguay por agua pura, alimentos seguros y salud','Consorcio orientado a fortalecer capacidades universitarias en gestión del agua, seguridad alimentaria y salud pública.','Lista de reserva'],['Perú','Capacity building en gestión sostenible del agua','Desarrollado junto al CONCYTEC de Perú, con foco en investigación aplicada y formación técnica en instituciones peruanas.','En desarrollo'],['Argentina · Paraguay','Laboratorios de conversión de vehículos a combustión en eléctricos','Coordinado por la Universidad de Málaga, junto a UTN Mendoza, UTN Morón, Control Vehicular Argentino e INTI. Formación técnica y montaje de talleres piloto de electromovilidad.','En desarrollo']]
-  };
-  const networkNames={en:['Ireland','Spain','France','Germany','Czech Republic','Italy','Türkiye','Guatemala','Costa Rica','Panama','Ecuador','Peru','Brazil','Paraguay','Argentina','Uruguay'],es:['Irlanda','España','Francia','Alemania','Rep. Checa','Italia','Turquía','Guatemala','Costa Rica','Panamá','Ecuador','Perú','Brasil','Paraguay','Argentina','Uruguay']};
-  const previousSetLanguage=setLanguage;
-  setLanguage=function(lang){
-    previousSetLanguage(lang);
-    document.querySelectorAll('#contacto input[data-ph-es], #contacto textarea[data-ph-es]').forEach(el=>{el.placeholder=lang==='es'?el.dataset.phEs:({nombre:'Your name',organizacion:'University, centre, company…',pais:'Country',email:'you@email.com',mensaje:'Tell us briefly about your interest or project idea…'}[el.id]||el.placeholder);});
-    document.querySelectorAll('#proyectos .project').forEach((card,i)=>{const row=projectCopy[lang][i]; if(!row)return; card.querySelector('.country').textContent=row[0]; card.querySelector('h3').textContent=row[1]; card.querySelector('p').textContent=row[2]; const status=card.querySelector('.tag.status-dev, .tag.status-reserve'); if(status) status.textContent=row[3];});
-    document.querySelectorAll('#hubLabels .hub-label .name').forEach((el,i)=>{if(networkNames[lang][i])el.textContent=networkNames[lang][i];});
-  };
-  setLanguage(localStorage.getItem('edunexus-language') || 'en');
-
-</script>
-
+    contactForm.addEventListener('submit', () => {
+      formStatus.textContent = root.dataset.lang === 'en'
+        ? 'Opening your email confirmation… / Abriendo la confirmación del email…'
+        : 'Abriendo la confirmación del email… / Opening your email confirmation…';
+    });
+  </script>
 </body>
 </html>
