@@ -249,7 +249,9 @@
 
     /* Contact */
     .contact-section { padding-bottom: 88px; }
-    .contact-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 80px; }
+    .contact-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 80px; align-items: start; }
+    .contact-info { grid-column: 2; }
+    .contact-form { grid-column: 1; grid-row: 1; }
     .contact-lede { max-width: 470px; font-size: 18px; }
     .contact-list { display: grid; gap: 19px; margin: 33px 0 0; }
     .contact-item dt { color: var(--muted-2); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
@@ -261,6 +263,13 @@
     .identity-row { display: flex; justify-content: space-between; gap: 20px; padding: 10px 0; border-top: 1px solid rgba(255,255,255,.09); color: var(--muted-2); font-size: 12px; }
     .identity-row strong { color: var(--ink); text-align: right; font-weight: 600; }
     .contact-form { display: grid; gap: 15px; padding: 30px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: linear-gradient(145deg, rgba(21,50,102,.68), rgba(8,20,45,.72)); box-shadow: var(--shadow); }
+    .contact-channels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 36px; }
+    .contact-channel { display: grid; grid-template-columns: 72px minmax(0, 1fr); align-items: center; gap: 12px; min-height: 96px; padding: 11px; border: 1px solid rgba(175,202,255,.16); border-radius: var(--radius-md); color: var(--ink); background: linear-gradient(145deg, rgba(21,50,102,.62), rgba(8,20,45,.66)); text-decoration: none; transition: transform .2s var(--ease-out), border-color .2s ease, box-shadow .2s ease; }
+    .contact-channel:hover, .contact-channel:focus-visible { transform: translateY(-4px); border-color: rgba(84,229,239,.6); box-shadow: 0 14px 28px rgba(0,0,0,.22), 0 0 24px rgba(84,229,239,.1); }
+    .contact-channel-image { display: grid; place-items: center; width: 72px; height: 72px; padding: 5px; border-radius: 10px; background: #fff; }
+    .contact-channel-image img { display: block; width: 100%; height: 100%; object-fit: contain; }
+    .contact-channel strong { display: block; color: var(--ink); font-size: 13px; }
+    .contact-channel small { display: block; margin-top: 4px; color: var(--muted-2); font-size: 10px; line-height: 1.35; }
     .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
     .field { display: grid; gap: 7px; }
     label { color: var(--muted-2); font-size: 12px; font-weight: 600; }
@@ -333,6 +342,7 @@
       .node-argentina { left: -3%; }
       .node-latam { right: -3%; }
       .impact-card, .about-grid, .network-banner, .contact-grid { grid-template-columns: 1fr; }
+      .contact-info, .contact-form { grid-column: auto; grid-row: auto; }
       .impact-item { padding: 19px 21px; }
       .capability-grid { gap: 10px; }
       .capability { min-height: 165px; padding: 20px; }
@@ -357,6 +367,7 @@
       .impact-item { display: grid; grid-template-columns: 58px 1fr; align-items: center; gap: 14px; }
       .stat-number { font-size: 27px; }
       .field-row { grid-template-columns: 1fr; }
+      .contact-channels { grid-template-columns: 1fr; }
       .footer-branding > img { width: 180px; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -497,7 +508,7 @@
 
     <section class="section contact-section" id="contacto">
       <div class="container contact-grid">
-        <div>
+        <div class="contact-info">
           <span class="eyebrow" data-es="Hablemos" data-en="Let's talk">Hablemos</span>
           <h2 data-es="Tu institución puede ser el próximo punto de la red." data-en="Your institution can be the next point in the network.">Tu institución puede ser el próximo punto de la red.</h2>
           <p class="contact-lede" data-es="Cuéntanos qué quieres transformar y encontraremos juntos el camino europeo para hacerlo posible." data-en="Tell us what you want to transform and we will find the European path to make it possible.">Cuéntanos qué quieres transformar y encontraremos juntos el camino europeo para hacerlo posible.</p>
@@ -510,6 +521,16 @@
             <h3 data-es="Identidad de organización Erasmus+" data-en="Erasmus+ organisation identity">Identidad de organización Erasmus+</h3>
             <div class="identity-row"><span data-es="ID de organización" data-en="Organisation ID">ID de organización</span><strong>E10414813</strong></div>
             <div class="identity-row"><span data-es="Nombre legal" data-en="Legal name">Nombre legal</span><strong>Edu Nexus Consulting Spain</strong></div>
+          </div>
+          <div class="contact-channels" aria-label="Canales de contacto / Contact channels">
+            <a class="contact-channel" href="img/wechat-qr.png" target="_blank" rel="noopener" aria-label="Abrir código QR de WeChat">
+              <span class="contact-channel-image"><img src="img/wechat-qr.png" alt="Código QR de WeChat"></span>
+              <span><strong>WeChat</strong><small data-es="Escanea para contactar" data-en="Scan to contact">Escanea para contactar</small></span>
+            </a>
+            <a class="contact-channel" href="https://wa.me/34667537320" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">
+              <span class="contact-channel-image"><img src="img/whatsapp-qr.png" alt="Código QR de WhatsApp"></span>
+              <span><strong>WhatsApp</strong><small data-es="+34 667 537 320" data-en="+34 667 537 320">+34 667 537 320</small></span>
+            </a>
           </div>
         </div>
         <form class="contact-form" id="contactForm" action="https://formsubmit.co/info@edunexusspain.eu" data-ajax-action="https://formsubmit.co/ajax/info@edunexusspain.eu" method="POST" accept-charset="UTF-8">
@@ -662,7 +683,8 @@
           headers: { Accept: 'application/json' }
         });
         const result = await response.json().catch(() => ({}));
-        if (!response.ok || result.success === false || result.success === 'false' || result.success === undefined) throw new Error('FormSubmit request failed');
+        const failed = result.success === false || String(result.success).toLowerCase() === 'false';
+        if (!response.ok || failed) throw new Error('FormSubmit request failed');
         contactForm.reset();
         setFormStatus('Mensaje enviado correctamente. Te responderemos pronto.', 'Message sent successfully. We will reply soon.', 'success');
       } catch (error) {
