@@ -533,10 +533,11 @@
             </a>
           </div>
         </div>
-       <form class="contact-form" id="contactForm" action="https://formsubmit.co/el/bozixa" method="POST">
-          <input type="hidden" name="_subject" value="Nuevo mensaje de contacto - Edu Nexus Spain">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
+       <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="TU_ACCESS_KEY_AQUI">
+          <input type="hidden" name="subject" value="Nuevo mensaje de contacto - Edu Nexus Spain">
+          <input type="hidden" name="from_name" value="Web Edu Nexus Spain">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
           <div class="field-row">
             <div class="field"><label for="nombre" data-es="Nombre" data-en="Name">Nombre</label><input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre / Your name" required></div>
             <div class="field"><label for="email" data-es="Email" data-en="Email">Email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="tu@email.com / you@email.com" required></div>
@@ -662,9 +663,9 @@
       submitButton.disabled = true;
       setFormStatus('Enviando mensaje…', 'Sending message…');
       const formData = new FormData(contactForm);
-      formData.set('_replyto', formData.get('email') || '');
-      formData.set('_subject', root.dataset.lang === 'en' ? 'New contact message - Edu Nexus Spain' : 'Nuevo mensaje de contacto - Edu Nexus Spain');
-      const fallbackSubject = formData.get('_subject');
+      formData.set('replyto', formData.get('email') || '');
+      formData.set('subject', root.dataset.lang === 'en' ? 'New contact message - Edu Nexus Spain' : 'Nuevo mensaje de contacto - Edu Nexus Spain');
+      const fallbackSubject = formData.get('subject');
       const fallbackBody = [
         `Nombre / Name: ${formData.get('nombre') || ''}`,
         `Email: ${formData.get('email') || ''}`,
@@ -681,7 +682,7 @@
         });
         const result = await response.json().catch(() => ({}));
         const failed = result.success === false || String(result.success).toLowerCase() === 'false';
-        if (!response.ok || failed) throw new Error('FormSubmit request failed');
+        if (!response.ok || failed) throw new Error('Web3Forms request failed');
         contactForm.reset();
         setFormStatus('Mensaje enviado correctamente. Te responderemos pronto.', 'Message sent successfully. We will reply soon.', 'success');
       } catch (error) {
