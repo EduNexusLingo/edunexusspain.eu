@@ -659,7 +659,7 @@
 
     contactForm.addEventListener('submit', async (event) => {
       event.preventDefault();
-      formFallback.classList.remove('visible');
+      if (formFallback) formFallback.classList.remove('visible');
       submitButton.disabled = true;
       setFormStatus('Enviando mensaje…', 'Sending message…');
       const formData = new FormData(contactForm);
@@ -672,7 +672,7 @@
         `Institución / Institution: ${formData.get('organizacion') || ''}`,
         `Mensaje / Message: ${formData.get('mensaje') || ''}`
       ].join(String.fromCharCode(10, 10));
-      formFallback.href = `mailto:info@edunexusspain.eu?subject=${encodeURIComponent(fallbackSubject)}&body=${encodeURIComponent(fallbackBody)}`;
+      if (formFallback) formFallback.href = `mailto:info@edunexusspain.eu?subject=${encodeURIComponent(fallbackSubject)}&body=${encodeURIComponent(fallbackBody)}`;
 
       try {
         const response = await fetch(contactForm.dataset.ajaxAction || contactForm.action, {
@@ -687,7 +687,7 @@
         setFormStatus('Mensaje enviado correctamente. Te responderemos pronto.', 'Message sent successfully. We will reply soon.', 'success');
       } catch (error) {
         setFormStatus('No se pudo enviar ahora. Puedes escribirnos directamente por email.', 'The message could not be sent now. You can email us directly.', 'error');
-        formFallback.classList.add('visible');
+        if (formFallback) formFallback.classList.add('visible');
       } finally {
         submitButton.disabled = false;
         submitLabel.textContent = root.dataset.lang === 'en' ? 'Send message' : 'Enviar mensaje';
